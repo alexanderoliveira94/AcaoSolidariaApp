@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcaoSolidariaAppA.Views.BoasVindasView"
+             Title="BoasVindasView">
+    <VerticalStackLayout>
+        <Grid>
+            <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Image x:Name="LogoApp" Source="logo.png" 
+                   WidthRequest="200"
+                   HeightRequest="200"
+                   Aspect="AspectFit"
+                   TranslationY="-300"/>
+
+                <Button     
+                    Text="Começar"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20"
+                    Clicked="ComecarBtn">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="BackgroundColor" Value="#0078D4" />
+                            <!-- Cor de fundo -->
+                            <Setter Property="TextColor" Value="White" />
+
+                            <Setter Property="FontSize" Value="18" />
+
+                            <Setter Property="CornerRadius" Value="25" />
+
+                            <Setter Property="Padding" Value="20,10" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+
+            </Grid>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
