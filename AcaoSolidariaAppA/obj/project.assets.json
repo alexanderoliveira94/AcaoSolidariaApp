@@ -24028,11 +24028,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
+      "projectUniqueName": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
       "projectName": "AcaoSolidariaAppA",
-      "projectPath": "E:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
+      "projectPath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
       "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-      "outputPath": "E:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\obj\\",
+      "outputPath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

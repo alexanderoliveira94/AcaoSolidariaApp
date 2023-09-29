@@ -16,12 +16,13 @@
                    Aspect="AspectFit"
                    TranslationY="-300"/>
 
-                <StackLayout Spacing="10">
+                <StackLayout >
                     <Entry x:Name="EmailEntry" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" TranslationY="-50"/>
                     <Entry x:Name="SenhaEntry" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10" TranslationY="-100"/>
                 </StackLayout>
 
-                <Button     
+                <Button  
+                    x:Name="EntrarBtn"
                     Text="Entrar"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
@@ -40,7 +41,8 @@
                 </Button>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Spacing="20">
-                    <Button     
+                    <Button
+                        x:Name="CadastrarBtn"
                         Text="Cadastrar-se"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="FillAndExpand"
@@ -58,7 +60,8 @@
                         </Button.Style>
                     </Button>
 
-                    <Button     
+                    <Button
+                         x:Name="EsqueceuSenhaBtn"
                         Text="Esqueceu a senha"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="FillAndExpand"

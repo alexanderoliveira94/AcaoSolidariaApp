@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>AcaoSolidariaAppA</ApplicationTitle>
+		<ApplicationTitle>Ação Solidaria</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.acaosolidariaappa</ApplicationId>
@@ -32,7 +32,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<!--<MauiIcon Include="Resources\Raw\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />-->
 
 		<!-- Splash Screen -->
 		<!--<MauiSplashScreen Include="Resources\Raw\splash.svg" Color="#000000" BaseSize="128,128" />-->
@@ -48,6 +48,13 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	
+	<ItemGroup>
+	  <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
+	  <MauiIcon Include="Resources\AppIcon\appiconfg.svg" />
+	  <!--<MauiIcon Include="Resources\AppIcon\appiconconfg.svg" />-->
+	  </ItemGroup>
+
 
 	<ItemGroup>
 	  <MauiSplashScreen Include="Resources\Splash\splashlogo.svg" Color="#FFFFFF" BaseSize="192,192" />
@@ -59,6 +66,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\BoasVindasView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EscolhaOngVoluntario.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

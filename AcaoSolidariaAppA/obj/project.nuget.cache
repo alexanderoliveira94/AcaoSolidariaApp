@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U6J6nPFhTS1z0asVO3RCpZxDS1ahyQrtc1yFek1oR68/xxU5b8TS+f3oikSDXP5+TQ8nRaHJz1sZHKUa56OjJw==",
+  "dgSpecHash": "8IRhZThdGPmlLMGuIcor6dMP37xQrgCl1Gh59Kgqdjotr14+63NfCf/fnS1MqQ8B9bqyWftk9JPO4zHrc0f0yA==",
   "success": true,
-  "projectFilePath": "E:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
+  "projectFilePath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
