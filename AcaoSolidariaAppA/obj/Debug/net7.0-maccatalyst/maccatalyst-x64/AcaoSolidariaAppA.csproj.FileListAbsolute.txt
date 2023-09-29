@@ -257,3 +257,7 @@ E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\De
 E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\AcaoSolidariaAppA.genruntimeconfig.cache
 E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\ref\AcaoSolidariaAppA.dll
 E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\mauisplash.stamp
+E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\background2.png
+E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\background3.jpg
+E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\background4.jpg
+E:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\logo.png
