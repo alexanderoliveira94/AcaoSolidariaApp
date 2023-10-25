@@ -19,7 +19,7 @@ public partial class BoasVindasView : ContentPage
         // Adicione a lógica para lidar com o botão "Esqueceu a senha" aqui
     }
 
-    private async void CadastrarBtn_Clicked(object sender, EventArgs e)
+    private async void RegistrarBtn_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new EscolhaOngVoluntario());
     }

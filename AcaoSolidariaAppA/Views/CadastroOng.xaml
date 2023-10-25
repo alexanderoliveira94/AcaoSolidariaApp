@@ -1,0 +1,54 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcaoSolidariaAppA.Views.CadastroOng"
+             Title="Cadastro de ONG">
+    <ContentPage.BackgroundImageSource>
+        <FileImageSource File="background4.jpg" />
+    </ContentPage.BackgroundImageSource>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" x:Name="LogoApp" Source="logo.png" 
+                       WidthRequest="200"
+                       HeightRequest="200"
+                       Aspect="AspectFit"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"/>
+
+            <Entry Grid.Row="1" Placeholder="Digite seu nome" x:Name="NomeEntry" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Grid.Row="2" Placeholder="Digite seu e-mail" x:Name="EmailEntry" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Grid.Row="3" Placeholder="Digite seu Endereco" x:Name="Endereco" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Grid.Row="4" Placeholder="Digite seu CNPJ" x:Name="CNPJ" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Grid.Row="5" Placeholder="Digite uma breve descrição sobre você" x:Name="DescricaoEntry" PlaceholderColor="Black" Margin="20,10"/>
+            <Entry Grid.Row="6" Placeholder="Digite sua senha" x:Name="SenhaEntry" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
+            <Entry Grid.Row="7" Placeholder="Confirme sua senha" x:Name="ConfirmarSenhaEntry" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
+            <Button Grid.Row="8"  
+                    x:Name="RegistrarBtn"
+                    Text="Registrar"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
+                    Margin="20"
+                    Clicked="RegistrarOngBtn_Clicked">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#0078D4" />
+                        <Setter Property="TextColor" Value="White" />
+                        <Setter Property="FontSize" Value="18" />
+                        <Setter Property="CornerRadius" Value="25" />
+                        <Setter Property="Padding" Value="20,10" />
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </ScrollView>
+</ContentPage>

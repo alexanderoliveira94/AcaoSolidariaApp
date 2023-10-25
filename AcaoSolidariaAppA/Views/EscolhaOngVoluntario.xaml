@@ -24,8 +24,7 @@
                      VerticalOptions="CenterAndExpand"
                      HorizontalOptions="FillAndExpand"
                      MinimumWidthRequest="150" 
-                     Clicked="OngBtn_Clicked"
-                     TranslationY="-100">
+                     Clicked="OngBtn_Clicked">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="BackgroundColor" Value="#008000" />
@@ -44,7 +43,7 @@
                      HorizontalOptions="FillAndExpand"
                      MinimumWidthRequest="150" 
                      Clicked="VoluntarioBtn_Clicked"
-                     TranslationY="-100">
+                     >
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="BackgroundColor" Value="Green" />

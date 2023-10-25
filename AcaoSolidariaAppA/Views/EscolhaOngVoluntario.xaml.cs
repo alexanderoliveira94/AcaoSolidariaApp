@@ -7,13 +7,13 @@ public partial class EscolhaOngVoluntario : ContentPage
 		InitializeComponent();
 	}
 
-    private void OngBtn_Clicked(object sender, EventArgs e)
+    private async void OngBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new CadastroOng());
     }
 
-    private void VoluntarioBtn_Clicked(object sender, EventArgs e)
+    private async void VoluntarioBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new CadastroUsuario());
     }
 }

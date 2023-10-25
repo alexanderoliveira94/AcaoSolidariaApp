@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8IRhZThdGPmlLMGuIcor6dMP37xQrgCl1Gh59Kgqdjotr14+63NfCf/fnS1MqQ8B9bqyWftk9JPO4zHrc0f0yA==",
+  "dgSpecHash": "CrGNhIr1swN+YYJW41PMD9j89+lLizbZhpCG3XQAOfg6gHRIlWQTdrfHOqKRljXrb1OJ/IFgK/giIF+jcd9X4w==",
   "success": true,
   "projectFilePath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\7.0.92\\microsoft.maui.graphics.win2d.winui.desktop.7.0.92.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.windowsappsdk\\1.2.221209.1\\microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\xamarin.android.glide\\4.13.2.2\\xamarin.android.glide.4.13.2.2.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\xamarin.android.glide.annotations\\4.13.2.2\\xamarin.android.glide.annotations.4.13.2.2.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.13.2.2\\xamarin.android.glide.disklrucache.4.13.2.2.nupkg.sha512",

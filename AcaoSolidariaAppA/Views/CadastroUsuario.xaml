@@ -1,0 +1,41 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcaoSolidariaAppA.Views.CadastroUsuario"
+             Title="Cadastro de Voluntário/Usuário">
+    <ContentPage.BackgroundImageSource>
+        <FileImageSource File="background4.jpg" />
+    </ContentPage.BackgroundImageSource>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image x:Name="LogoApp" Source="logo.png" 
+                   WidthRequest="200"
+                   HeightRequest="200"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+
+            <Entry Placeholder="Digite seu nome" x:Name="NomeEntry" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Placeholder="Digite seu e-mail" x:Name="EmailEntry" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Placeholder="Digite uma breve descrição sobre você" x:Name="DescricaoEntry" PlaceholderColor="Black" Margin="20,10"/>
+            <Entry Placeholder="Digite sua senha" x:Name="SenhaEntry" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
+            <Entry Placeholder="Confirme sua senha" x:Name="ConfirmarSenhaEntry" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
+            <Button 
+                    x:Name="RegistrarBtn"
+                    Text="Registrar"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
+                    Margin="20"
+                    Clicked="RegistrarUsuarioBtn_Clicked">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#0078D4" />
+                        <Setter Property="TextColor" Value="White" />
+                        <Setter Property="FontSize" Value="18" />
+                        <Setter Property="CornerRadius" Value="25" />
+                        <Setter Property="Padding" Value="20,10" />
+                    </Style>
+                </Button.Style>
+            </Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

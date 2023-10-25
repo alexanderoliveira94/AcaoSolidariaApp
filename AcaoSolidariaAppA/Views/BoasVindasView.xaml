@@ -16,10 +16,10 @@
                    Aspect="AspectFit"
                    TranslationY="-300"/>
 
-                <StackLayout >
-                    <Entry x:Name="EmailEntry" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" TranslationY="-50"/>
-                    <Entry x:Name="SenhaEntry" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10" TranslationY="-100"/>
-                </StackLayout>
+                <VerticalStackLayout >
+                    <Entry x:Name="EmailEntry" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
+                    <Entry x:Name="SenhaEntry" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
+                </VerticalStackLayout>
 
                 <Button  
                     x:Name="EntrarBtn"
@@ -28,7 +28,7 @@
                     HorizontalOptions="Center"
                     Margin="0,10,0,10"
                     Clicked="EntrarBtn_Clicked"
-                    TranslationY="20">
+                    TranslationY="30">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="BackgroundColor" Value="#0078D4" />
@@ -39,7 +39,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-
+                
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Spacing="20">
                     <Button
                         x:Name="CadastrarBtn"
@@ -47,7 +47,7 @@
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="FillAndExpand"
                         MinimumWidthRequest="150" 
-                        Clicked="CadastrarBtn_Clicked"
+                        Clicked="RegistrarBtn_Clicked"
                         TranslationY="20">
                         <Button.Style>
                             <Style TargetType="Button">
