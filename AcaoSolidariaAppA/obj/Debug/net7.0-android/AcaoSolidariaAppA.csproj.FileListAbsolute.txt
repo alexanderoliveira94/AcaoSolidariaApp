@@ -2029,6 +2029,14 @@ D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-androi
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.stamp
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\typemaps.x86_64.ll
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\environment.x86_64.ll
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\compressed_assemblies.x86_64.ll
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\typemaps.x86_64.o
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\environment.x86_64.o
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\compressed_assemblies.x86_64.o
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\jni_remap.x86_64.o
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\app_shared_libraries\x86_64\libxamarin-app.so
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\assets\mscorlib.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\assets\System.Collections.Concurrent.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\assets\System.Data.Common.dll
@@ -2042,11 +2050,3 @@ D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-androi
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\assets\System.Xml.dll
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\typemaps.arm64-v8a.ll
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\environment.arm64-v8a.ll
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\compressed_assemblies.arm64-v8a.ll
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\typemaps.arm64-v8a.o
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\environment.arm64-v8a.o
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\compressed_assemblies.arm64-v8a.o
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\android\jni_remap.arm64-v8a.o
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so

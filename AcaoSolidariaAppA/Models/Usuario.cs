@@ -1,20 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace AcaoSolidariaAppA.Models
+namespace AcaoSolidariaApp.Models
 {
     public class Usuario
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string PasswordString { get; set; }
-        public string Perfil { get; set; }
-        public string Token { get; set; }
-        public byte[] Foto { get; set; }
+        public int IdUsuario { get; set; }
+        public int? IdFotoUsuario { get; set; }
+        public string Nome { get; set; }
         public string Email { get; set; }
-       
+        public string SenhaUsuario { get; set; }
+        public DateTime? DataRegistro { get; set; }
+        public string DescricaoHabilidades { get; set; }
+        public float? AvaliacaoMedia { get; set; }
     }
 }

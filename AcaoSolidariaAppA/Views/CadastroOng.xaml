@@ -5,7 +5,9 @@
     <ContentPage.BackgroundImageSource>
         <FileImageSource File="background4.jpg" />
     </ContentPage.BackgroundImageSource>
-    <ScrollView>
+    
+        <VerticalStackLayout>
+            <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -50,5 +52,7 @@
                 </Button.Style>
             </Button>
         </Grid>
-    </ScrollView>
+        </ScrollView>
+    </VerticalStackLayout>
+    
 </ContentPage>

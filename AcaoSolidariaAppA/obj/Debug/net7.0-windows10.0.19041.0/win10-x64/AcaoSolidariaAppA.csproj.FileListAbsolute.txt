@@ -721,7 +721,6 @@ D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-window
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostfxr.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1123.42427.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordbi.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorrc.dll
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\msquic.dll
@@ -747,3 +746,4 @@ D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-window
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1323.51816.dll
