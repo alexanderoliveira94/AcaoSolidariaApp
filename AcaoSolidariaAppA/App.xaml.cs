@@ -7,7 +7,6 @@ namespace AcaoSolidariaAppA
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage (new BoasVindasView());
         }
     }

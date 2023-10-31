@@ -87,4 +87,10 @@
 	  <MauiImage Include="Images\logo.png" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Views\CadastroUsuario.xaml.cs">
+	    <DependentUpon>CadastroUsuario.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
 </Project>
