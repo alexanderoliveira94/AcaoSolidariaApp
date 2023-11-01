@@ -37,6 +37,7 @@ compartilharem suas iniciativas e projetos humanitários, além de facilitar a b
 ## Contribuição
 
 Sinta-se à vontade para contribuir para o desenvolvimento do Ação Solidária App. Você pode abrir problemas ou enviar pedidos de pull request, a api está 
+em outro repositório na minha conta AcaoSolidariaApi.
 
 ## Equipe
 
