@@ -1,6 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels;assembly=AcaoSolidariaAppA"
+             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
              x:Class="AcaoSolidariaAppA.Views.CadastroUsuario"
              Title="Cadastro de Voluntário/Usuário">
     <ContentPage.BackgroundImageSource>
@@ -22,13 +22,12 @@
             <Entry Placeholder="Digite seu e-mail" Text="{Binding Email}" PlaceholderColor="Black" Margin="20,10" />
             <Entry Placeholder="Digite uma breve descrição sobre você" Text="{Binding DescricaoHabilidades}" PlaceholderColor="Black" Margin="20,10"/>
             <Entry Placeholder="Digite sua senha" Text="{Binding SenhaUsuario}" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
-            <Entry Placeholder="Confirme sua senha" Text="{Binding ConfirmarSenha}" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
             <Button 
                     Text="Registrar"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
                     Margin="20"
-                    Command="{Binding CriarUsuarioCommand}">
+                    Command="{Binding RegistrarCommand}">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="BackgroundColor" Value="#0078D4" />

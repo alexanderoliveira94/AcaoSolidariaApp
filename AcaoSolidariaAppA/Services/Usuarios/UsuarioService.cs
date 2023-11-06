@@ -1,33 +1,26 @@
 ﻿using AcaoSolidariaAppA.Models;
-using AcaoSolidariaAppA.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AcaoSolidariaAppA.Services.Usuarios
 {
-    public class UsuarioService : Request
+    public class UsuarioService
     {
-    
-        private readonly Request _request;
-        private const string apiUrlBase = "http://localhost:8080/api/Usuario/criarUsuario";
-        //xyz --> Site da sua API
-
-        public UsuarioService()
-        {
-            _request = new Request();
-        }
+        private const string apiUrlBase = "http://localhost:7687/Usuario";
 
         public async Task<Usuario> PostRegistrarUsuarioAsync(Usuario u)
         {
-            //Registrar: Rota para o método na API que registrar o usuário
-            string urlComplementar = "/criarUsuario";
-            u.IdUsuario = await _request.PostReturnIntAsync(apiUrlBase + urlComplementar, u);
+            Request request = new Request();
+            string urlComplementar = "/Registrar";
+            u.IdUsuario = await request.PostReturnIntAsync(apiUrlBase + urlComplementar, u);
             return u;
         }
-      
 
+        public async Task<Usuario> PostAutenticarUsuarioAsync(Usuario u)
+        {
+            Request request = new Request();
+            string urlComplementar = "/Autenticar";
+            u = await request.PostAsync(apiUrlBase + urlComplementar, u, string.Empty);
+            return u;
+        }
     }
 }

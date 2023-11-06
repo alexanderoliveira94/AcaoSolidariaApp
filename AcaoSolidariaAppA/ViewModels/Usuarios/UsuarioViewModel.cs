@@ -1,114 +1,162 @@
-using AcaoSolidariaAppA.Models;
-using AcaoSolidariaAppA.Views;
-using System;
-using System.ComponentModel;
-using System.Net.Http;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+using AcaoSolidariaAppA.Services.Usuarios;
 using System.Windows.Input;
+using AcaoSolidariaAppA.Models;
 
-namespace AcaoSolidariaAppA.ViewModels
+namespace AcaoSolidariaAppA.ViewModels.Usuarios
 {
     public class UsuarioViewModel : BaseViewModel
     {
-        private ICommand _criarUsuarioCommand;
-        private string nome;
-        private string email;
-        private string senha;
-        private string descricao;
 
-        public ICommand CriarUsuarioCommand =>
-            _criarUsuarioCommand ?? (_criarUsuarioCommand = new Command(async () => await CriarUsuario(nome, email, senha, descricao)));
 
+        public UsuarioViewModel()
+        {
+            uService = new UsuarioService();
+            InicializarCommands();
+        }
+
+
+        public void InicializarCommands()
+        {
+            RegistrarCommand = new Command(async () => await RegistrarUsuario());
+            AutenticarCommand = new Command(async () => await AutenticarUsuario());
+            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
+        }
+
+        private UsuarioService uService;
+
+        public ICommand RegistrarCommand { get; set; }
+        public ICommand AutenticarCommand { get; set; }
+        public ICommand DirecionarCadastroCommand { get; set; }
+
+        private string _nome = string.Empty;
         public string Nome
         {
-            get { return nome; }
+            get { return _nome; }
             set
             {
-                nome = value;
+                _nome = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _email = string.Empty;
         public string Email
         {
-            get { return email; }
+            get { return _email; }
             set
             {
-                email = value;
+                _email = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Senha
+        private string _descricaoHabilidades = string.Empty;
+        public string DescricaoHabilidades
         {
-            get { return senha; }
+            get { return _descricaoHabilidades; }
             set
             {
-                senha = value;
+                _descricaoHabilidades = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Descricao
+        private string _senhaUsuario = string.Empty;
+        public string SenhaUsuario
         {
-            get { return descricao; }
+            get { return _senhaUsuario; }
             set
             {
-                descricao = value;
+                _senhaUsuario = value;
                 OnPropertyChanged();
             }
         }
 
-        private async Task<bool> CriarUsuario(string nome, string email, string senha, string descricao)
+
+
+        public async Task RegistrarUsuario()//Método para registrar um usuário     
         {
             try
             {
-                Usuario novoUsuario = new Usuario // Preencha com os dados do novo usuário
+                Usuario u = new Usuario();
+                u.Nome = Nome;
+                u.Email = Email;
+                u.DescricaoHabilidades = DescricaoHabilidades;
+                u.SenhaUsuario = SenhaUsuario;
+
+                Usuario uRegistrado = await uService.PostRegistrarUsuarioAsync(u);
+
+                if (uRegistrado.IdUsuario != 0)
                 {
-                    Nome = nome,
-                    Email = email,
-                    SenhaUsuario = senha,
-                    DescricaoHabilidades = descricao
-                };
+                    string mensagem = $"Usuário Id {uRegistrado.IdUsuario} registrado com sucesso.";
+                    await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "Ok");
 
-                using var httpClient = new HttpClient();
-                var json = JsonSerializer.Serialize(novoUsuario);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                using var response = await httpClient.PostAsync("http://localhost:8080/api/Usuario/criarUsuario", content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    // Usuário criado com sucesso
-                    await App.Current.MainPage.Navigation.PushAsync(new BoasVindasView());
-                    return true;
+                    await Application.Current.MainPage
+                        .Navigation.PopAsync();//Remove a página da pilha de visualização
                 }
-                else
-                {
-                    // Lidar com falhas de criação do usuário
-                    return false;
-                }
-            }
-            catch (HttpRequestException e)
-            {
-                // Lidar com exceções relacionadas à solicitação HTTP
-                Console.WriteLine($"Erro na solicitação HTTP: {e.Message}");
-                return false;
-            }
-            catch (JsonException je)
-            {
-                // Lidar com erros de serialização JSON
-                Console.WriteLine($"Erro de serialização JSON: {je.Message}");
-                return false;
             }
             catch (Exception ex)
             {
-                // Lidar com outras exceções não especificadas
-                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
-                return false;
+                await Application.Current.MainPage
+                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+                Console.WriteLine(ex.Message); // Imprime a mensagem da exceção
+                Console.WriteLine(ex.StackTrace); // Imprime a pilha de chamadas
+            }
+        }
+
+
+        private CancellationTokenSource _cancelTokenSource;
+        
+        public async Task AutenticarUsuario()//Método para autenticar um usuário     
+        {
+            try
+            {
+                Usuario u = new Usuario();
+                u.Nome = Nome;
+                u.Email = Email;
+                u.DescricaoHabilidades = DescricaoHabilidades;
+                u.SenhaUsuario = SenhaUsuario;
+
+                Usuario uAutenticado = await uService.PostAutenticarUsuarioAsync(u);
+
+                if (!string.IsNullOrEmpty(uAutenticado.Token))
+                {
+                    string mensagem = $"Bem-vindo(a) {uAutenticado.Email}.";
+
+                    //Guardando dados do usuário para uso futuro
+                    Preferences.Set("UsuarioId", uAutenticado.IdUsuario);
+                    Preferences.Set("UsuarioUsername", uAutenticado.Email);
+                    Preferences.Set("UsuarioToken", uAutenticado.Token);
+
+                   await Application.Current.MainPage
+                            .DisplayAlert("Informação", mensagem, "Ok");
+
+                    Application.Current.MainPage = new AppShell();
+                }
+                else
+                {
+                    await Application.Current.MainPage
+                        .DisplayAlert("Informação", "Dados incorretos :(", "Ok");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+            }
+        }
+
+        public async Task DirecionarParaCadastro()//Método para exibição da view de Cadastro      
+        {
+            try
+            {
+                await Application.Current.MainPage.
+                    Navigation.PushAsync(new Views.BoasVindasView());
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
             }
         }
 
