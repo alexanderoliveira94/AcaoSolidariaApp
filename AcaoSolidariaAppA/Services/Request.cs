@@ -17,11 +17,14 @@ namespace AcaoSolidariaAppA.Services
 
             string serialized = await response.Content.ReadAsStringAsync();
 
-            if (response.IsSuccessStatusCode)
-                return int.Parse(serialized);
-            else
-                return 0;
+            int result = 0;
+            if (response.IsSuccessStatusCode && int.TryParse(serialized, out int parsedResult))
+            {
+                result = parsedResult;
+            }
+            return result;
         }
+
 
         public async Task<TResult> PostAsync<TResult>(string uri, TResult data, string token)
         {

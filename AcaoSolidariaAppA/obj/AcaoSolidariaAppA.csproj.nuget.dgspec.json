@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj": {}
+    "D:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj": {}
   },
   "projects": {
-    "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj": {
+    "D:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
+        "projectUniqueName": "D:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
         "projectName": "AcaoSolidariaAppA",
-        "projectPath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
+        "projectPath": "D:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
         "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\obj\\",
+        "outputPath": "D:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZzYOyuhJYyMwYgUFBcPCwlMGQmB5U6atlFHgwJTT1jPQtlOhYT7bkZyUlqI2iyMxNPCVsZRXdhb1LKJl/n5mDw==",
+  "dgSpecHash": "2tgzqQLVTrq8ZoENBbaeZVXCnycfsKVT+cQC7j6OAmixhocTcVb6JBbJWECGiQFKyc5RPRk2d11vwGzlBMcBbA==",
   "success": true,
-  "projectFilePath": "D:\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
+  "projectFilePath": "D:\\AcaoSolidariaApp\\AcaoSolidariaAppA\\AcaoSolidariaAppA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",

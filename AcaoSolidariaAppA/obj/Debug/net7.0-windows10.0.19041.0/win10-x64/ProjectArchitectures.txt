@@ -1,1 +1,1 @@
-D:\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA\AcaoSolidariaAppA.csproj;x64
+D:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA.csproj;x64

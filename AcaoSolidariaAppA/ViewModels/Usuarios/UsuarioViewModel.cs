@@ -1,27 +1,12 @@
 using AcaoSolidariaAppA.Services.Usuarios;
 using System.Windows.Input;
 using AcaoSolidariaAppA.Models;
+using System.Net.Mail;
 
 namespace AcaoSolidariaAppA.ViewModels.Usuarios
 {
     public class UsuarioViewModel : BaseViewModel
     {
-
-
-        public UsuarioViewModel()
-        {
-            uService = new UsuarioService();
-            InicializarCommands();
-        }
-
-
-        public void InicializarCommands()
-        {
-            RegistrarCommand = new Command(async () => await RegistrarUsuario());
-            AutenticarCommand = new Command(async () => await AutenticarUsuario());
-            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
-        }
-
         private UsuarioService uService;
 
         public ICommand RegistrarCommand { get; set; }
@@ -72,50 +57,88 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             }
         }
 
+        public UsuarioViewModel()
+        {
+            uService = new UsuarioService();
+            InicializarCommands();
+        }
 
+        public void InicializarCommands()
+        {
+            RegistrarCommand = new Command(async () => await RegistrarUsuario());
+            AutenticarCommand = new Command(async () => await AutenticarUsuario());
+            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
+        }
 
-        public async Task RegistrarUsuario()//Método para registrar um usuário     
+        public async Task RegistrarUsuario()
         {
             try
             {
-                Usuario u = new Usuario();
-                u.Nome = Nome;
-                u.Email = Email;
-                u.DescricaoHabilidades = DescricaoHabilidades;
-                u.SenhaUsuario = SenhaUsuario;
-
-                Usuario uRegistrado = await uService.PostRegistrarUsuarioAsync(u);
-
-                if (uRegistrado.IdUsuario != 0)
+                if (string.IsNullOrWhiteSpace(Nome) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(SenhaUsuario))
                 {
-                    string mensagem = $"Usuário Id {uRegistrado.IdUsuario} registrado com sucesso.";
-                    await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "Ok");
-
-                    await Application.Current.MainPage
-                        .Navigation.PopAsync();//Remove a página da pilha de visualização
+                    throw new Exception("Os campos Nome, E-mail e Senha são obrigatórios.");
                 }
+
+                if (string.IsNullOrWhiteSpace(DescricaoHabilidades))
+                {
+                    throw new Exception("O campo Descrição de Habilidades é obrigatório.");
+                }
+
+                if (!IsValidEmail(Email))
+                {
+                    throw new Exception("O e-mail fornecido não é válido.");
+                }
+
+                Usuario u = new Usuario
+                {
+                    Nome = Nome,
+                    Email = Email,
+                    DescricaoHabilidades = DescricaoHabilidades,
+                    SenhaUsuario = SenhaUsuario
+                };
+
+                await uService.PostRegistrarUsuarioAsync(u);
+
+                string mensagem = $"Bem-vindo, {u.Nome}!";
+                await Application.Current.MainPage.DisplayAlert("Sucesso", mensagem, "Ok");
+                Application.Current.MainPage = new NavigationPage(new Views.BoasVindasView());
+            }
+            catch (HttpRequestException)
+            {
+                await Application.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage
-                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
-                Console.WriteLine(ex.Message); // Imprime a mensagem da exceção
-                Console.WriteLine(ex.StackTrace); // Imprime a pilha de chamadas
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
 
-
-        private CancellationTokenSource _cancelTokenSource;
-        
-        public async Task AutenticarUsuario()//Método para autenticar um usuário     
+        public async Task AutenticarUsuario()
         {
             try
             {
-                Usuario u = new Usuario();
-                u.Nome = Nome;
-                u.Email = Email;
-                u.DescricaoHabilidades = DescricaoHabilidades;
-                u.SenhaUsuario = SenhaUsuario;
+                if (string.IsNullOrWhiteSpace(Nome))
+                {
+                    throw new Exception("Por favor, insira um nome válido.");
+                }
+
+                if (string.IsNullOrWhiteSpace(Email))
+                {
+                    throw new Exception("Por favor, insira um endereço de e-mail válido.");
+                }
+
+                if (string.IsNullOrWhiteSpace(SenhaUsuario))
+                {
+                    throw new Exception("Por favor, insira uma senha válida.");
+                }
+
+                Usuario u = new Usuario
+                {
+                    Nome = Nome,
+                    Email = Email,
+                    DescricaoHabilidades = DescricaoHabilidades,
+                    SenhaUsuario = SenhaUsuario
+                };
 
                 Usuario uAutenticado = await uService.PostAutenticarUsuarioAsync(u);
 
@@ -123,40 +146,56 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
                 {
                     string mensagem = $"Bem-vindo(a) {uAutenticado.Email}.";
 
-                    //Guardando dados do usuário para uso futuro
+                    // Guardando dados do usuário para uso futuro
                     Preferences.Set("UsuarioId", uAutenticado.IdUsuario);
                     Preferences.Set("UsuarioUsername", uAutenticado.Email);
                     Preferences.Set("UsuarioToken", uAutenticado.Token);
 
-                   await Application.Current.MainPage
-                            .DisplayAlert("Informação", mensagem, "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "Ok");
 
                     Application.Current.MainPage = new AppShell();
                 }
                 else
                 {
-                    await Application.Current.MainPage
-                        .DisplayAlert("Informação", "Dados incorretos :(", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Informação", "Credenciais de autenticação incorretas. Por favor, tente novamente.", "Ok");
                 }
+            }
+            catch (HttpRequestException)
+            {
+                await Application.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage
-                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
 
-        public async Task DirecionarParaCadastro()//Método para exibição da view de Cadastro      
+        public async Task DirecionarParaCadastro()
         {
             try
             {
-                await Application.Current.MainPage.
-                    Navigation.PushAsync(new Views.BoasVindasView());
+                await Application.Current.MainPage.Navigation.PushAsync(new Views.BoasVindasView());
+            }
+            catch (HttpRequestException)
+            {
+                await Application.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage
-                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+            }
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mailAddress = new MailAddress(email);
+                return mailAddress.Address == email;
+            }
+            catch
+            {
+                return false;
             }
         }
 
