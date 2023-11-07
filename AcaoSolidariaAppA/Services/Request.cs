@@ -1,8 +1,6 @@
-using Newtonsoft.Json;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace AcaoSolidariaAppA.Services
 {
@@ -11,8 +9,9 @@ namespace AcaoSolidariaAppA.Services
         public async Task<int> PostReturnIntAsync<TResult>(string uri, TResult data)
         {
             HttpClient httpClient = new HttpClient();
+            var jsonSerializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-            var jsonData = JsonConvert.SerializeObject(data);
+            var jsonData = JsonSerializer.Serialize(data, jsonSerializerOptions);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await httpClient.PostAsync(uri, content);
 
@@ -29,7 +28,7 @@ namespace AcaoSolidariaAppA.Services
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var jsonData = JsonConvert.SerializeObject(data);
+            var jsonData = JsonSerializer.Serialize(data);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await httpClient.PostAsync(uri, content);
 
@@ -37,7 +36,7 @@ namespace AcaoSolidariaAppA.Services
             TResult result = data;
 
             if (response.IsSuccessStatusCode)
-                result = JsonConvert.DeserializeObject<TResult>(serialized);
+                result = JsonSerializer.Deserialize<TResult>(serialized);
 
             return result;
         }
@@ -48,7 +47,7 @@ namespace AcaoSolidariaAppA.Services
             httpClient.DefaultRequestHeaders.Authorization
                 = new AuthenticationHeaderValue("Bearer", token);
 
-            var content = new StringContent(JsonConvert.SerializeObject(data));
+            var content = new StringContent(JsonSerializer.Serialize(data));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = await httpClient.PostAsync(uri, content);
 
@@ -66,7 +65,7 @@ namespace AcaoSolidariaAppA.Services
             httpClient.DefaultRequestHeaders.Authorization
                 = new AuthenticationHeaderValue("Bearer", token);
 
-            var content = new StringContent(JsonConvert.SerializeObject(data));
+            var content = new StringContent(JsonSerializer.Serialize(data));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = await httpClient.PutAsync(uri, content);
 
@@ -88,7 +87,7 @@ namespace AcaoSolidariaAppA.Services
             HttpResponseMessage response = await httpClient.GetAsync(uri);
             string serialized = await response.Content.ReadAsStringAsync();
             TResult result = await Task.Run(() =>
-                JsonConvert.DeserializeObject<TResult>(serialized));
+                JsonSerializer.Deserialize<TResult>(serialized));
             return result;
         }
 
