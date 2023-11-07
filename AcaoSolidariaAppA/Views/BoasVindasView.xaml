@@ -1,90 +1,89 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
              x:Class="AcaoSolidariaAppA.Views.BoasVindasView"
              Title="Login">
+    <ContentPage.BindingContext>
+        <viewModels:UsuarioViewModel/>
+    </ContentPage.BindingContext>
     <ScrollView>
-    <VerticalStackLayout>
-        <Grid>
-            <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+        <VerticalStackLayout>
+            <Grid>
+                <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
 
-            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Image x:Name="LogoApp" Source="logo.png" 
-                   WidthRequest="200"
-                   HeightRequest="200"
-                   Aspect="AspectFit"
-                   TranslationY="-300"/>
+                <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="LogoApp" Source="logo.png" 
+                        WidthRequest="200"
+                        HeightRequest="200"
+                        Aspect="AspectFit"
+                        TranslationY="-300"/>
 
-                <VerticalStackLayout >
-                    <Entry x:Name="EmailEntry" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
-                    <Entry x:Name="SenhaEntry" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
-                </VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Entry Text="{Binding Email}" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
+                        <Entry Text="{Binding SenhaUsuario}" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
+                    </VerticalStackLayout>
 
-                <Button  
-                    x:Name="EntrarBtn"
-                    Text="Entrar"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"
-                    Margin="0,10,0,10"
-                    Clicked="EntrarBtn_Clicked"
-                    TranslationY="30">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="BackgroundColor" Value="#0078D4" />
-                            <Setter Property="TextColor" Value="White" />
-                            <Setter Property="FontSize" Value="18" />
-                            <Setter Property="CornerRadius" Value="25" />
-                            <Setter Property="Padding" Value="20,10" />
-                        </Style>
-                    </Button.Style>
-                </Button>
-                
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Spacing="20">
-                    <Button
-                        x:Name="CadastrarBtn"
-                        Text="Cadastrar-se"
+                    <Button  
+                        Text="Entrar"
                         VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        MinimumWidthRequest="150" 
-                        Clicked="RegistrarBtn_Clicked"
-                        TranslationY="20">
+                        HorizontalOptions="Center"
+                        Margin="0,10,0,10"
+                        Command="{Binding AutenticarCommand}"
+                        TranslationY="30">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="BackgroundColor" Value="#008000" />
+                                <Setter Property="BackgroundColor" Value="#0078D4" />
                                 <Setter Property="TextColor" Value="White" />
-                                <Setter Property="FontSize" Value="16" />
-                                <Setter Property="CornerRadius" Value="15" />
-                                <Setter Property="Padding" Value="10,5" />
+                                <Setter Property="FontSize" Value="18" />
+                                <Setter Property="CornerRadius" Value="25" />
+                                <Setter Property="Padding" Value="20,10" />
                             </Style>
                         </Button.Style>
                     </Button>
 
-                    <Button
-                         x:Name="EsqueceuSenhaBtn"
-                        Text="Esqueceu a senha"
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        MinimumWidthRequest="150" 
-                        Clicked="EsqueceuSenhaBtn_Clicked"
-                        TranslationY="20">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="BackgroundColor" Value="Green" />
-                                <Setter Property="TextColor" Value="White" />
-                                <Setter Property="FontSize" Value="16" />
-                                <Setter Property="CornerRadius" Value="15" />
-                                <Setter Property="Padding" Value="10,5" />
-                                <Setter Property="BorderColor" Value="#0078D4" />
-                                <Setter Property="BorderWidth" Value="1" />
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Spacing="20">
+                        <Button
+                            Text="Cadastrar-se"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            MinimumWidthRequest="150" 
+                            Command="{Binding DirecionarCadastroCommand}"
+                            TranslationY="20">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BackgroundColor" Value="#008000" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="FontSize" Value="16" />
+                                    <Setter Property="CornerRadius" Value="15" />
+                                    <Setter Property="Padding" Value="10,5" />
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <Button
+                            Text="Esqueceu a senha"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            MinimumWidthRequest="150" 
+                            Clicked="EsqueceuSenhaBtn_Clicked"
+                            TranslationY="20">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BackgroundColor" Value="Green" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="FontSize" Value="16" />
+                                    <Setter Property="CornerRadius" Value="15" />
+                                    <Setter Property="Padding" Value="10,5" />
+                                    <Setter Property="BorderColor" Value="#0078D4" />
+                                    <Setter Property="BorderWidth" Value="1" />
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackLayout>
 
 
+                </Grid>
             </Grid>
-        </Grid>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

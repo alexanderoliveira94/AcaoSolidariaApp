@@ -11,7 +11,6 @@ namespace AcaoSolidariaAppA.Models
         public int? IdFotoUsuario { get; set; }
         public string Nome { get; set; }
 
-        [EmailAddress(ErrorMessage = "O e-mail fornecido não é válido.")]
         public string Email { get; set; }
         public string SenhaUsuario { get; set; }
         public string Token { get; set; }

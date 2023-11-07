@@ -2,6 +2,8 @@ using AcaoSolidariaAppA.Services.Usuarios;
 using System.Windows.Input;
 using AcaoSolidariaAppA.Models;
 using System.Net.Mail;
+using AcaoSolidariaAppA.Views.Usuarios;
+using AcaoSolidariaAppA.Views;
 
 namespace AcaoSolidariaAppA.ViewModels.Usuarios
 {
@@ -100,73 +102,60 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
                 await uService.PostRegistrarUsuarioAsync(u);
 
                 string mensagem = $"Bem-vindo, {u.Nome}!";
-                await Application.Current.MainPage.DisplayAlert("Sucesso", mensagem, "Ok");
-                Application.Current.MainPage = new NavigationPage(new Views.BoasVindasView());
+                await App.Current.MainPage.DisplayAlert("Sucesso", mensagem, "Ok");
+                Application.Current.MainPage = new NavigationPage(new BoasVindasView());
             }
             catch (HttpRequestException)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
+                await App.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
 
-        public async Task AutenticarUsuario()
+        
+
+
+        private CancellationTokenSource _cancelTokenSource;
+
+        public async Task AutenticarUsuario()//Método para autenticar um usuário     
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(Nome))
-                {
-                    throw new Exception("Por favor, insira um nome válido.");
-                }
-
-                if (string.IsNullOrWhiteSpace(Email))
-                {
-                    throw new Exception("Por favor, insira um endereço de e-mail válido.");
-                }
-
-                if (string.IsNullOrWhiteSpace(SenhaUsuario))
-                {
-                    throw new Exception("Por favor, insira uma senha válida.");
-                }
-
-                Usuario u = new Usuario
-                {
-                    Nome = Nome,
-                    Email = Email,
-                    DescricaoHabilidades = DescricaoHabilidades,
-                    SenhaUsuario = SenhaUsuario
-                };
+                Usuario u = new Usuario();
+                u.Email = Email;
+                u.SenhaUsuario = SenhaUsuario;
 
                 Usuario uAutenticado = await uService.PostAutenticarUsuarioAsync(u);
 
                 if (!string.IsNullOrEmpty(uAutenticado.Token))
                 {
-                    string mensagem = $"Bem-vindo(a) {uAutenticado.Email}.";
+                    string mensagem = $"Bem-vindo(a) {uAutenticado.Nome}.";
 
-                    // Guardando dados do usuário para uso futuro
+                    //Guardando dados do usuário para uso futuro
                     Preferences.Set("UsuarioId", uAutenticado.IdUsuario);
-                    Preferences.Set("UsuarioUsername", uAutenticado.Email);
+                    Preferences.Set("UsuarioEmail", uAutenticado.Email);
+                    Preferences.Set("UsuarioSenha", uAutenticado.SenhaUsuario);
                     Preferences.Set("UsuarioToken", uAutenticado.Token);
 
-                    await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "Ok");
+
+                    await Application.Current.MainPage
+                            .DisplayAlert("Informação", mensagem, "Ok");
 
                     Application.Current.MainPage = new AppShell();
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Informação", "Credenciais de autenticação incorretas. Por favor, tente novamente.", "Ok");
+                    await Application.Current.MainPage
+                        .DisplayAlert("Informação", "Dados incorretos :(", "Ok");
                 }
-            }
-            catch (HttpRequestException)
-            {
-                await Application.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+                await Application.Current.MainPage
+                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
             }
         }
 
@@ -174,15 +163,15 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
         {
             try
             {
-                await Application.Current.MainPage.Navigation.PushAsync(new Views.BoasVindasView());
+                await App.Current.MainPage.Navigation.PushAsync(new EscolhaOngVoluntario());
             }
             catch (HttpRequestException)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
+                await App.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
 
