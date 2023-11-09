@@ -12,63 +12,63 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = AcaoSolidariaAppA
-build_property.ProjectDir = D:\AcaoSolidariaApp\AcaoSolidariaAppA\
+build_property.ProjectDir = D:\AcaoSolidariaApieApp\AcaoSolidariaApp\AcaoSolidariaAppA\
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/App.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/AppShell.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/MainPage.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Resources/Styles/Colors.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Resources/Styles/Styles.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/BoasVindasView.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Views/BoasVindasView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.BoasVindasView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\BoasVindasView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\BoasVindasView.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/CadastroOng.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Views/CadastroOng.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.CadastroOng.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\CadastroOng.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CadastroOng.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/CadastroUsuario.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Views/CadastroUsuario.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.CadastroUsuario.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\CadastroUsuario.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CadastroUsuario.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/EscolhaOngVoluntario.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Views/EscolhaOngVoluntario.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.EscolhaOngVoluntario.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\EscolhaOngVoluntario.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\EscolhaOngVoluntario.xaml
 
-[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/Usuarios/FeedUsuario.xaml]
+[D:/AcaoSolidariaApieApp/AcaoSolidariaApp/AcaoSolidariaAppA/Views/Usuarios/FeedUsuario.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.Usuarios.FeedUsuario.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Usuarios\FeedUsuario.xaml

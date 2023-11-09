@@ -22,6 +22,8 @@ namespace AcaoSolidariaAppA.Services
             {
                 result = parsedResult;
             }
+            else
+                throw new Exception(serialized);
             return result;
         }
 
@@ -40,6 +42,8 @@ namespace AcaoSolidariaAppA.Services
 
             if (response.IsSuccessStatusCode)
                 result = JsonSerializer.Deserialize<TResult>(serialized);
+            else
+                throw new Exception(serialized);
 
             return result;
         }

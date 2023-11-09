@@ -9,11 +9,25 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
 {
     public class UsuarioViewModel : BaseViewModel
     {
+        public UsuarioViewModel()
+        {
+            uService = new UsuarioService();
+            InicializarCommands();
+        }
+
+        public void InicializarCommands()
+        {
+            RegistrarCommand = new Command(async () => await RegistrarUsuario());
+            AutenticarCommand = new Command(async () => await AutenticarUsuario());
+            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
+        }
+
         private UsuarioService uService;
 
         public ICommand RegistrarCommand { get; set; }
         public ICommand AutenticarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
+
 
         private string _nome = string.Empty;
         public string Nome
@@ -59,19 +73,6 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             }
         }
 
-        public UsuarioViewModel()
-        {
-            uService = new UsuarioService();
-            InicializarCommands();
-        }
-
-        public void InicializarCommands()
-        {
-            RegistrarCommand = new Command(async () => await RegistrarUsuario());
-            AutenticarCommand = new Command(async () => await AutenticarUsuario());
-            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
-        }
-
         public async Task RegistrarUsuario()
         {
             try
@@ -103,7 +104,7 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
 
                 string mensagem = $"Bem-vindo, {u.Nome}!";
                 await App.Current.MainPage.DisplayAlert("Sucesso", mensagem, "Ok");
-                Application.Current.MainPage = new NavigationPage(new BoasVindasView());
+                
             }
             catch (HttpRequestException)
             {
@@ -114,11 +115,8 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
                 await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
-
         
-
-
-        private CancellationTokenSource _cancelTokenSource;
+        
 
         public async Task AutenticarUsuario()//Método para autenticar um usuário     
         {
@@ -130,16 +128,15 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
 
                 Usuario uAutenticado = await uService.PostAutenticarUsuarioAsync(u);
 
-                if (!string.IsNullOrEmpty(uAutenticado.Token))
+                if (Email != null)
                 {
                     string mensagem = $"Bem-vindo(a) {uAutenticado.Nome}.";
 
-                    //Guardando dados do usuário para uso futuro
+                    
                     Preferences.Set("UsuarioId", uAutenticado.IdUsuario);
+                    Preferences.Set("UsuarioNome", uAutenticado.Nome);
                     Preferences.Set("UsuarioEmail", uAutenticado.Email);
-                    Preferences.Set("UsuarioSenha", uAutenticado.SenhaUsuario);
-                    Preferences.Set("UsuarioToken", uAutenticado.Token);
-
+                    
 
                     await Application.Current.MainPage
                             .DisplayAlert("Informação", mensagem, "Ok");

@@ -5,7 +5,7 @@ namespace AcaoSolidariaAppA.Services.Usuarios
 {
     public class UsuarioService
     {
-        //private const string apiUrlBase = ("http://localhost:7687/Usuario");
+        //private const string apiUrlBase = ("http://localhost:7687/Usuario"); //TESTE GERAL EM REDE LOCAL FORA DO EMULADOR
         private const string apiUrlBase = ("http://10.0.2.2:7687/Usuario"); //PARA APENAS TESTAR NO ANDROID
 
         public async Task<Usuario> PostRegistrarUsuarioAsync(Usuario u)
