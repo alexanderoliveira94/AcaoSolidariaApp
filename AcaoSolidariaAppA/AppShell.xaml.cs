@@ -1,5 +1,4 @@
-﻿using AcaoSolidariaAppA.Views;
-using AcaoSolidariaAppA.Views.Usuarios;
+﻿using AcaoSolidariaAppA.ViewModels.Usuarios;
 
 namespace AcaoSolidariaAppA
 {
@@ -9,10 +8,6 @@ namespace AcaoSolidariaAppA
         {
             InitializeComponent();
 
-            //Routing.RegisterRoute("cadPersonagemView", typeof(FeedUsuario));
-
-            ////string login = Preferences.Get("UsuarioUsername", string.Empty);
-            ////lblLogin.Text = $"Login: {login}";
         }
     }
 }

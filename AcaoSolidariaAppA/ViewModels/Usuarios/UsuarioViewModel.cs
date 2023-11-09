@@ -20,6 +20,7 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             RegistrarCommand = new Command(async () => await RegistrarUsuario());
             AutenticarCommand = new Command(async () => await AutenticarUsuario());
             DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
+            DesconectarCommand = new Command(async () => await DesconectarUsuario());
         }
 
         private UsuarioService uService;
@@ -27,6 +28,7 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
         public ICommand RegistrarCommand { get; set; }
         public ICommand AutenticarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
+        public ICommand DesconectarCommand { get; set; }
 
 
         private string _nome = string.Empty;
@@ -104,7 +106,8 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
 
                 string mensagem = $"Bem-vindo, {u.Nome}!";
                 await App.Current.MainPage.DisplayAlert("Sucesso", mensagem, "Ok");
-                
+                Application.Current.MainPage = new NavigationPage(new BoasVindasView());
+
             }
             catch (HttpRequestException)
             {
@@ -115,10 +118,8 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
                 await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
-        
-        
 
-        public async Task AutenticarUsuario()//Método para autenticar um usuário     
+        public async Task AutenticarUsuario()
         {
             try
             {
@@ -128,33 +129,31 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
 
                 Usuario uAutenticado = await uService.PostAutenticarUsuarioAsync(u);
 
-                if (Email != null)
+                if (uAutenticado != null)
                 {
-                    string mensagem = $"Bem-vindo(a) {uAutenticado.Nome}.";
-
                     
+                    string mensagemBemVindo = $"Bem-vindo(a)";
+                    string mensagemAcaoSolidaria = $"à Ação Solidária!";
+
                     Preferences.Set("UsuarioId", uAutenticado.IdUsuario);
                     Preferences.Set("UsuarioNome", uAutenticado.Nome);
                     Preferences.Set("UsuarioEmail", uAutenticado.Email);
-                    
 
-                    await Application.Current.MainPage
-                            .DisplayAlert("Informação", mensagem, "Ok");
-
-                    Application.Current.MainPage = new AppShell();
+                    await Application.Current.MainPage.DisplayAlert(mensagemBemVindo, mensagemAcaoSolidaria, "Ok");
+                    Application.Current.MainPage = new FeedUsuario();
                 }
                 else
                 {
-                    await Application.Current.MainPage
-                        .DisplayAlert("Informação", "Dados incorretos :(", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Informação", "Dados incorretos :(", "Ok");
                 }
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage
-                    .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Informação", ex.Message, "Ok");
             }
         }
+
+
 
         public async Task DirecionarParaCadastro()
         {
@@ -182,6 +181,24 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             catch
             {
                 return false;
+            }
+        }
+        private async Task DesconectarUsuario()
+        {
+            try
+            {
+                // Adicione aqui a lógica para limpar os dados de autenticação, se necessário
+                Preferences.Remove("UsuarioId");
+                Preferences.Remove("UsuarioNome");
+                Preferences.Remove("UsuarioEmail");
+
+                // Retorne para o menu principal ou para a página de login, conforme necessário
+                Application.Current.MainPage = new NavigationPage(new BoasVindasView());
+
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
 
