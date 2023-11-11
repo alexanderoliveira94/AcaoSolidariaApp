@@ -1,42 +1,64 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
-             x:Class="AcaoSolidariaAppA.Views.Usuarios.FeedUsuario"
-             Title="FeedUsuario">
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
+            x:Class="AcaoSolidariaAppA.Views.Usuarios.FeedUsuario"
+            Title="FeedUsuario">
 
-    <ContentPage.BindingContext>
-        <viewModels:UsuarioViewModel/>
-    </ContentPage.BindingContext>
-    <ScrollView>
-        <VerticalStackLayout>
-            <Grid>
-                <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
-
-                <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Image x:Name="LogoApp" Source="logo.png" 
-                        WidthRequest="200"
-                        HeightRequest="200"
-                        Aspect="AspectFit"
-                        TranslationY="-300"/>
-
-                    <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-                        <Label Text="{Binding Nome}" FontSize="Large" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0" />
-                    </StackLayout>
-
-                    <Button Text="Desconectar" Command="{Binding DesconectarCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0">
+    
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu">
+            <StackLayout BackgroundColor="LightBlue" Padding="20">
+                <ContentPage.BindingContext>
+                    <viewModels:UsuarioViewModel />
+                </ContentPage.BindingContext>
+                <VerticalStackLayout>
+                    <Image Source="logo.png" WidthRequest="80" HeightRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="Ação Solidária" FontSize="Large" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0" />
+                    <Label Text="{Binding Nome}" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" Margin="0,5,0,0" />
+                    <Button Text="Alterar Cadastro" Command="{Binding AlterarCadastroCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,30,0,0">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="BackgroundColor" Value="#FF4500" />
+                                <Setter Property="BackgroundColor" Value="#3498db" />
                                 <Setter Property="TextColor" Value="White" />
                                 <Setter Property="FontSize" Value="18" />
-                                <Setter Property="CornerRadius" Value="10" />
+                                <Setter Property="CornerRadius" Value="8" />
                                 <Setter Property="Padding" Value="20,10" />
                             </Style>
                         </Button.Style>
                     </Button>
-                </Grid>
-            </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
-</ContentPage>
+                    <Button Text="Desconectar" Command="{Binding DesconectarCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,10,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="BackgroundColor" Value="#e74c3c" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="FontSize" Value="18" />
+                                <Setter Property="CornerRadius" Value="8" />
+                                <Setter Property="Padding" Value="20,10" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </VerticalStackLayout>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage>
+                    <AbsoluteLayout>
+                        <!-- Adiciona o background à página principal -->
+                        <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+
+                        <!-- Conteúdo principal da página aqui -->
+                        <ScrollView>
+                            <VerticalStackLayout>
+                                <!-- Conteúdo existente aqui -->
+                            </VerticalStackLayout>
+                        </ScrollView>
+                    </AbsoluteLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

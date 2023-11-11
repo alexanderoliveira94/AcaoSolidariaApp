@@ -2,7 +2,7 @@ using AcaoSolidariaAppA.ViewModels.Usuarios;
 
 namespace AcaoSolidariaAppA.Views.Usuarios;
 
-public partial class FeedUsuario : ContentPage
+public partial class FeedUsuario : FlyoutPage
 {
 	public FeedUsuario()
 	{
