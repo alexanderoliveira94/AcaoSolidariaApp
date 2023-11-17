@@ -68,6 +68,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.Es
 build_metadata.AdditionalFiles.TargetPath = Views\EscolhaOngVoluntario.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\EscolhaOngVoluntario.xaml
 
+[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/Ong/FeedOng.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.Ong.FeedOng.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Ong\FeedOng.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Ong\FeedOng.xaml
+
+[D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/Usuarios/AlterarCadastroUsuario.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.Usuarios.AlterarCadastroUsuario.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Usuarios\AlterarCadastroUsuario.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Usuarios\AlterarCadastroUsuario.xaml
+
 [D:/AcaoSolidariaApp/AcaoSolidariaAppA/Views/Usuarios/FeedUsuario.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = AcaoSolidariaAppA.Views.Usuarios.FeedUsuario.xaml

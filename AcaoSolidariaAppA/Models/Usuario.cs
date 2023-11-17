@@ -21,5 +21,6 @@ namespace AcaoSolidariaAppA.Models
         // Adicione estas duas propriedades para correspondência com a classe da API
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public string Token { get; set; }
     }
 }

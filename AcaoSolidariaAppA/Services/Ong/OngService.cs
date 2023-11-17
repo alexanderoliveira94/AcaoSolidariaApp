@@ -1,37 +1,40 @@
-using AcaoSolidariaApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
+using AcaoSolidariaAppA.Models;
 using System.Threading.Tasks;
 
 namespace AcaoSolidariaAppA.Services.Ong
 {
     public class OngService
     {
-        //private readonly HttpClient _httpClient;
-        //private const string ApiBaseUrl = "https://exemplo.com/api/"; // Substitua pela URL base da sua API
+        private const string apiUrlBase = "http://10.0.2.2:7687/Ong";
 
-        //public OngService()
-        //{
-        //    _httpClient = new HttpClient();
-        //}
+        public async Task<ONG> PostRegistrarOngAsync(ONG u)
+        {
+            Request request = new Request();
+            string urlComplementar = "/Registrar";
+            u.IdOng = await request.PostReturnIntAsync(apiUrlBase + urlComplementar, u);
+            return u;
+        }
 
-        //public async Task<string> CriarOng(ONG ong)
-        //{
-        //    var ongJson = JsonSerializer.Serialize(ong);
-        //    var content = new StringContent(ongJson, Encoding.UTF8, "application/json");
-        //    var response = await _httpClient.PostAsync(ApiBaseUrl + "ongs", content); // Substitua "ongs" pela rota apropriada para criação de ONGs em sua API
+        public async Task<ONG> PostAutenticarOngAsync(ONG u)
+        {
+            Request request = new Request();
+            string urlComplementar = "/autenticarOng";
+            u = await request.PostAsync(apiUrlBase + urlComplementar, u, string.Empty);
+            return u;
+        }
 
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        return "ONG criada com sucesso.";
-        //    }
-        //    else
-        //    {
-        //        return "Falha ao criar a ONG. Verifique o retorno da API para mais detalhes.";
-        //    }
-        //}
+        public async Task CriarOngAsync(ONG u)
+        {
+            Request request = new Request();
+            string urlComplementar = "/registrarOng";
+            await request.PostAsync(apiUrlBase + urlComplementar, u, string.Empty);
+        }
+
+        public async Task AtualizarOngAsync(int id, Usuario usuarioAtualizacao)
+        {
+            Request request = new Request();
+            string urlComplementar = $"/atualizarOng/{id}";
+            await request.PutAsync(apiUrlBase + urlComplementar, usuarioAtualizacao, string.Empty);
+        }
     }
 }

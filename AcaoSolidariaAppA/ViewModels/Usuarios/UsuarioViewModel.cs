@@ -21,6 +21,7 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             AutenticarCommand = new Command(async () => await AutenticarUsuario());
             DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
             DesconectarCommand = new Command(async () => await DesconectarUsuario());
+            AlterarCadastroCommand = new Command(async () => await AlterarCadastro());
         }
 
         private UsuarioService uService;
@@ -29,6 +30,7 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
         public ICommand AutenticarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
         public ICommand DesconectarCommand { get; set; }
+        public ICommand AlterarCadastroCommand { get; set; }
 
 
         private string _nome = string.Empty;
@@ -153,8 +155,64 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             }
         }
 
+        public async Task AtualizarUsuario()
+        {
+            try
+            {
+                // Obtenha as informações do usuário autenticado (por exemplo, do armazenamento local)
+                int idUsuario = Preferences.Get("UsuarioId", 0);
 
+                // Verifique se há um ID de usuário válido
+                if (idUsuario <= 0)
+                {
+                    await App.Current.MainPage.DisplayAlert("Erro", "ID de usuário inválido.", "Ok");
+                    return;
+                }
 
+                Usuario usuarioAtualizacao = new Usuario
+                {
+                    IdUsuario = idUsuario,
+                    SenhaUsuario = SenhaUsuario,
+                    DescricaoHabilidades = DescricaoHabilidades
+                };
+
+                // Chame o método para atualizar o usuário
+                await uService.AtualizarUsuarioAsync(idUsuario, usuarioAtualizacao);
+
+                await App.Current.MainPage.DisplayAlert("Sucesso", "Usuário atualizado com sucesso.", "Ok");
+            }
+            catch (HttpRequestException)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro de conexão", "Verifique sua conexão com a internet e tente novamente.", "Ok");
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+            }
+        }
+
+        private async Task AlterarCadastro()
+        {
+            try
+            {
+                // Obtenha as informações do usuário autenticado (por exemplo, do armazenamento local)
+                int idUsuario = Preferences.Get("UsuarioId", 0);
+
+                // Verifique se há um ID de usuário válido
+                if (idUsuario <= 0)
+                {
+                    await App.Current.MainPage.DisplayAlert("Erro", "ID de usuário inválido.", "Ok");
+                    return;
+                }
+
+                // Redirecione para a página de atualização de dados (substitua `PaginaAtualizacaoDados` pelo nome da sua página)
+                //await App.Current.MainPage.Navigation.PushAsync(new AlterarCadastroUsuario(idUsuario));
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+            }
+        }
         public async Task DirecionarParaCadastro()
         {
             try

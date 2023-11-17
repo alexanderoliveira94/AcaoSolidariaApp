@@ -7,7 +7,7 @@ namespace AcaoSolidariaAppA.Services.Usuarios
     {
         //private const string apiUrlBase = ("http://localhost:7687/Usuario"); //TESTE GERAL EM REDE LOCAL FORA DO EMULADOR
         private const string apiUrlBase = ("http://10.0.2.2:7687/Usuario"); //PARA APENAS TESTAR NO ANDROID
-
+                      
         public async Task<Usuario> PostRegistrarUsuarioAsync(Usuario u)
         {
             Request request = new Request();
@@ -22,6 +22,13 @@ namespace AcaoSolidariaAppA.Services.Usuarios
             string urlComplementar = "/Autenticar";
             u = await request.PostAsync(apiUrlBase + urlComplementar, u, string.Empty);
             return u;
+        }
+
+        public async Task AtualizarUsuarioAsync(int id, Usuario usuarioAtualizacao)
+        {
+            Request request = new Request();
+            string urlComplementar = $"/atualizarUsuario/{id}";
+            await request.PutAsync(apiUrlBase + urlComplementar, usuarioAtualizacao, string.Empty);
         }
     }
 }

@@ -41,6 +41,12 @@
     <MauiXaml Update="Views\EscolhaOngVoluntario.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Ong\FeedOng.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Usuarios\AlterarCadastroUsuario.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\Usuarios\FeedUsuario.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
