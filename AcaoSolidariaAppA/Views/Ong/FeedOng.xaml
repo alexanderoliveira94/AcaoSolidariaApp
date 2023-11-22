@@ -46,7 +46,8 @@
                     <AbsoluteLayout>
                         <!-- Adiciona o background à página principal -->
                         <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
-
+                        <Image Source="logo.png" WidthRequest="80" HeightRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Text="ONG FEED" FontSize="Large" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0" />
                         <!-- Conteúdo principal da página aqui -->
                         <ScrollView>
                             <VerticalStackLayout>

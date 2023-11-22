@@ -1,10 +1,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
+             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels;assembly=AcaoSolidariaAppA"
              x:Class="AcaoSolidariaAppA.Views.BoasVindasView"
              Title="Login">
     <ContentPage.BindingContext>
-        <viewModels:UsuarioViewModel/>
+        <viewModels:MainViewModel/>
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
@@ -15,12 +15,12 @@
                     <Image x:Name="LogoApp" Source="logo.png" 
                         WidthRequest="200"
                         HeightRequest="200"
-                        Aspect="AspectFit"
+                        Aspect="AspectFit"  
                         TranslationY="-300"/>
 
                     <VerticalStackLayout>
-                        <Entry Text="{Binding Email}" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
-                        <Entry Text="{Binding SenhaUsuario}" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
+                        <Entry Text="{Binding UsuarioViewModel.Email}" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
+                        <Entry Text="{Binding UsuarioViewModel.SenhaUsuario}" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
                     </VerticalStackLayout>
 
                     <Button  
@@ -28,7 +28,7 @@
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Center"
                         Margin="0,10,0,10"
-                        Command="{Binding AutenticarCommand}"
+                        Command="{Binding UsuarioViewModel.AutenticarCommand}"
                         TranslationY="30">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -47,7 +47,7 @@
                             VerticalOptions="CenterAndExpand"
                             HorizontalOptions="FillAndExpand"
                             MinimumWidthRequest="150" 
-                            Command="{Binding DirecionarCadastroCommand}"
+                            Command="{Binding UsuarioViewModel.DirecionarCadastroCommand}"
                             TranslationY="20">
                             <Button.Style>
                                 <Style TargetType="Button">

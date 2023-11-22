@@ -17,19 +17,22 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
 
         public void InicializarCommands()
         {
-            RegistrarCommand = new Command(async () => await RegistrarOng());
-            AutenticarCommand = new Command(async () => await AutenticarOng());
-            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
-            DesconectarCommand = new Command(async () => await DesconectarOng());
+            RegistrarOngCommand = new Command(async () => await RegistrarOng());
+            AutenticarOngCommand = new Command(async () => await AutenticarOng());
+            DirecionarCadastroOngCommand = new Command(async () => await DirecionarParaCadastro());
+            DesconectarOngCommand = new Command(async () => await DesconectarOng());
             //AlterarCadastroCommand = new Command(async () => await AlterarCadastro());
+           
         }
 
         private OngService ongService;
 
-        public ICommand RegistrarCommand { get; set; }
-        public ICommand AutenticarCommand { get; set; }
-        public ICommand DirecionarCadastroCommand { get; set; }
-        public ICommand DesconectarCommand { get; set; }
+        public ICommand RegistrarOngCommand { get; set; }
+        public ICommand AutenticarOngCommand { get; set; }
+        public ICommand DirecionarCadastroOngCommand { get; set; }
+        public ICommand DesconectarOngCommand { get; set; }
+
+        
         //public ICommand AlterarCadastroCommand { get; set; }
 
         private string _nomeOng = string.Empty;
@@ -102,7 +105,25 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
         {
             try
             {
-                // Lógica para verificar e validar os campos da ONG
+                if (string.IsNullOrWhiteSpace(NomeOng) || string.IsNullOrWhiteSpace(EmailOng) || string.IsNullOrWhiteSpace(SenhaOng))
+                {
+                    throw new Exception("Os campos Nome, E-mail e Senha são obrigatórios.");
+                }
+
+                if (string.IsNullOrWhiteSpace(DescricaoOng))
+                {
+                    throw new Exception("O campo Descrição de Habilidades é obrigatório.");
+                }
+
+                if (string.IsNullOrWhiteSpace(CNPJOng))
+                {
+                    throw new Exception("O campo Descrição de Habilidades é obrigatório.");
+                }
+
+                if (!IsValidEmail(EmailOng))
+                {
+                    throw new Exception("O e-mail fornecido não é válido.");
+                }
 
                 ONG ong = new ONG
                 {

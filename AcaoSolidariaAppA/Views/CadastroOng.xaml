@@ -19,12 +19,12 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center" />
 
-            <Entry Placeholder="Digite seu nome" Text="{Binding Nome}" PlaceholderColor="Black" Margin="20,10" />
-            <Entry Placeholder="Digite seu e-mail" Text="{Binding Email}" PlaceholderColor="Black" Margin="20,10" />
-            <Entry Placeholder="Digite seu Endereco" Text="{Binding Endereco}" PlaceholderColor="Black" Margin="20,10" />
-            <Entry Placeholder="Digite seu CNPJ" Text="{Binding CNPJ}" PlaceholderColor="Black" Margin="20,10" />
-            <Entry Placeholder="Digite uma breve descrição sobre você" Text="{Binding Descricao}" PlaceholderColor="Black" Margin="20,10"/>
-            <Entry Placeholder="Digite sua senha" Text="{Binding Senha}" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
+            <Entry Placeholder="Digite seu nome" Text="{Binding NomeOng}" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Placeholder="Digite seu e-mail" Text="{Binding EmailOng}" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Placeholder="Digite seu Endereco" Text="{Binding EnderecoOng}" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Placeholder="Digite seu CNPJ" Text="{Binding CNPJOng}" PlaceholderColor="Black" Margin="20,10" />
+            <Entry Placeholder="Digite uma breve descrição sobre você" Text="{Binding DescricaoOng}" PlaceholderColor="Black" Margin="20,10"/>
+            <Entry Placeholder="Digite sua senha" Text="{Binding SenhaOng}" PlaceholderColor="Black" IsPassword="True" Margin="20,10"/>
             <Button 
                     Text="Registrar"
                     VerticalOptions="CenterAndExpand"

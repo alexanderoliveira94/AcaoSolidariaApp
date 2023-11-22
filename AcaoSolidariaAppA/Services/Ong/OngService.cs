@@ -10,7 +10,7 @@ namespace AcaoSolidariaAppA.Services.Ong
         public async Task<ONG> PostRegistrarOngAsync(ONG u)
         {
             Request request = new Request();
-            string urlComplementar = "/Registrar";
+            string urlComplementar = "/registrarOng";
             u.IdOng = await request.PostReturnIntAsync(apiUrlBase + urlComplementar, u);
             return u;
         }
