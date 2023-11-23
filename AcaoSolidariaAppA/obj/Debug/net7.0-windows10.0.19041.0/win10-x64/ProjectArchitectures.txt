@@ -1,1 +1,0 @@
-D:\AcaoSolidariaApp\AcaoSolidariaAppA\AcaoSolidariaAppA.csproj;x64
