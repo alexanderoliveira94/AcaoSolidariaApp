@@ -30,7 +30,7 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
                     Margin="20"
-                    Command="{Binding RegistrarCommand}">
+                    Command="{Binding RegistrarOngCommand}">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="BackgroundColor" Value="#0078D4" />

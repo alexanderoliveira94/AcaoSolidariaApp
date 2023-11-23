@@ -1,10 +1,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels;assembly=AcaoSolidariaAppA"
+             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
              x:Class="AcaoSolidariaAppA.Views.BoasVindasView"
              Title="Login">
     <ContentPage.BindingContext>
-        <viewModels:MainViewModel/>
+        <viewModels:UsuarioViewModel/>
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
@@ -47,7 +47,7 @@
                             VerticalOptions="CenterAndExpand"
                             HorizontalOptions="FillAndExpand"
                             MinimumWidthRequest="150" 
-                            Command="{Binding UsuarioViewModel.DirecionarCadastroCommand}"
+                            Clicked="RegistrarBtn_Clicked"
                             TranslationY="20">
                             <Button.Style>
                                 <Style TargetType="Button">

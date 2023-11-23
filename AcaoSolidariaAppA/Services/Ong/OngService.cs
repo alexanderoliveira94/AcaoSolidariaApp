@@ -5,6 +5,7 @@ namespace AcaoSolidariaAppA.Services.Ong
 {
     public class OngService
     {
+        //private const string apiUrlBase = ("http://localhost:7687/Ong");
         private const string apiUrlBase = "http://10.0.2.2:7687/Ong";
 
         public async Task<ONG> PostRegistrarOngAsync(ONG u)
