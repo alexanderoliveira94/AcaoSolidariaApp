@@ -1,4 +1,6 @@
 using System;
+using AcaoSolidariaAppA.Views.Ong;
+using AcaoSolidariaAppA.Views.Usuarios;
 using Microsoft.Maui.Controls;
 
 namespace AcaoSolidariaAppA.Views;
@@ -9,9 +11,14 @@ public partial class BoasVindasView : ContentPage
 	{
         InitializeComponent();
 	}
-    private void EntrarBtn_Clicked(object sender, EventArgs e)
+    private async void EntrarBtn_Clicked(object sender, EventArgs e)
     {
-        // Adicione a lógica para lidar com o botão "Entrar" aqui
+        await Navigation.PushAsync(new AutenticacaoUsuario());
+    }
+
+    private async void EntrarOngBtn_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AutenticacaoOng());
     }
 
     private void EsqueceuSenhaBtn_Clicked(object sender, EventArgs e)

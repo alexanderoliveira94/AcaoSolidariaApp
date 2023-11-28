@@ -4,6 +4,7 @@ using AcaoSolidariaAppA.Models;
 using System.Net.Mail;
 using AcaoSolidariaAppA.Views;
 using AcaoSolidariaAppA.Views.Usuarios;
+using AcaoSolidariaAppA.Views.Ong;
 
 namespace AcaoSolidariaAppA.ViewModels.Ongs
 {
@@ -170,7 +171,7 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
                     Preferences.Set("OngEmail", uAutenticado.EmailOng);
 
                     await Application.Current.MainPage.DisplayAlert(mensagemBemVindo, mensagemAcaoSolidaria, "Ok");
-                    Application.Current.MainPage = new FeedUsuario();
+                    Application.Current.MainPage = new FeedOng();
                 }
                 else
                 {
