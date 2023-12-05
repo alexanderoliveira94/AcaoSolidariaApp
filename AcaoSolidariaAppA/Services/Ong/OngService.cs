@@ -7,6 +7,7 @@ namespace AcaoSolidariaAppA.Services.Ong
     {
         //private const string apiUrlBase = ("http://localhost:7687/Ong");
         private const string apiUrlBase = "http://10.0.2.2:7687/Ong";
+        private const string apiUrlBasePublicacao = "http://10.0.2.2:7687/Publicacao";
 
         public async Task<ONG> PostRegistrarOngAsync(ONG u)
         {
@@ -36,6 +37,14 @@ namespace AcaoSolidariaAppA.Services.Ong
             Request request = new Request();
             string urlComplementar = $"/atualizarOng/{id}";
             await request.PutAsync(apiUrlBase + urlComplementar, usuarioAtualizacao, string.Empty);
+        }
+
+        public async Task<ONG> PostRegistrarPublicacaoAsync(ONG u)
+        {
+            Request request = new Request();
+            string urlComplementar = "/criarPublicacao";
+            u.IdOng = await request.PostReturnIntAsync(apiUrlBasePublicacao + urlComplementar, u);
+            return u;
         }
     }
 }

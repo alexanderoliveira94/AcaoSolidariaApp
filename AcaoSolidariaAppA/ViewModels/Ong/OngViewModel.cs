@@ -4,14 +4,17 @@ using AcaoSolidariaAppA.Models;
 using System.Net.Mail;
 using AcaoSolidariaAppA.Views;
 using AcaoSolidariaAppA.Views.Usuarios;
+using AcaoSolidariaApp.ViewModels.PublicacaoViewModel;
 
 namespace AcaoSolidariaAppA.ViewModels.Ongs
 {
     public class OngViewModel : BaseViewModel
     {
+        
         public OngViewModel()
         {
             ongService = new OngService();
+            _publicacaoViewModel = new PublicacaoViewModel();
             InicializarCommands();
         }
 
@@ -22,17 +25,23 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
             DirecionarCadastroOngCommand = new Command(async () => await DirecionarParaCadastro());
             DesconectarOngCommand = new Command(async () => await DesconectarOng());
             //AlterarCadastroCommand = new Command(async () => await AlterarCadastro());
-           
+            CriarPublicacaoCommand = new Command(async () => await _publicacaoViewModel.CriarPublicacao());
+            CarregarPublicacoesCommand = new Command(async () => await _publicacaoViewModel.CarregarPublicacoes());
+
         }
 
         private OngService ongService;
+        private PublicacaoViewModel _publicacaoViewModel;
 
         public ICommand RegistrarOngCommand { get; set; }
         public ICommand AutenticarOngCommand { get; set; }
         public ICommand DirecionarCadastroOngCommand { get; set; }
         public ICommand DesconectarOngCommand { get; set; }
+        public ICommand CarregarPublicacoesCommand { get; set; }
+        public ICommand CriarPublicacaoCommand { get; set; }
 
-        
+
+
         //public ICommand AlterarCadastroCommand { get; set; }
 
         private string _nomeOng = string.Empty;
@@ -242,6 +251,7 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
         //    }
         //}
 
+
         public async Task DirecionarParaCadastro()
         {
             try
@@ -271,6 +281,7 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
             }
         }
 
+
         private async Task DesconectarOng()
         {
             try
@@ -290,5 +301,9 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
             }
         }
 
+        private async Task CarregarPublicacoes()
+        {
+            await _publicacaoViewModel.CarregarPublicacoes();
+        }
     }
 }

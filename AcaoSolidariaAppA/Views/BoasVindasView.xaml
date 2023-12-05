@@ -3,9 +3,6 @@
              xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
              x:Class="AcaoSolidariaAppA.Views.BoasVindasView"
              Title="Login">
-    <ContentPage.BindingContext>
-        <viewModels:UsuarioViewModel/>
-    </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
             <Grid>
@@ -18,17 +15,13 @@
                         Aspect="AspectFit"  
                         TranslationY="-300"/>
 
-                    <VerticalStackLayout>
-                        <Entry Text="{Binding UsuarioViewModel.Email}" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
-                        <Entry Text="{Binding UsuarioViewModel.SenhaUsuario}" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
-                    </VerticalStackLayout>
 
                     <Button  
-                        Text="Entrar"
+                        Text="Entrar como Voluntário"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Center"
                         Margin="0,10,0,10"
-                        Command="{Binding UsuarioViewModel.AutenticarCommand}"
+                        Clicked="EntrarBtn_Clicked"
                         TranslationY="30">
                         <Button.Style>
                             <Style TargetType="Button">

@@ -1,3 +1,4 @@
+using AcaoSolidariaApp.ViewModels.PublicacaoViewModel;
 using AcaoSolidariaAppA.ViewModels.Ongs;
 
 namespace AcaoSolidariaAppA.Views.Ong;
