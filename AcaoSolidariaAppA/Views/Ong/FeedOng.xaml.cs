@@ -5,10 +5,17 @@ namespace AcaoSolidariaAppA.Views.Ong;
 
 public partial class FeedOng : FlyoutPage
 {
-	public FeedOng()
+    private readonly PublicacaoViewModel _viewModel;
+
+    public FeedOng()
 	{
         InitializeComponent();
-        BindingContext = new OngViewModel();
-
+        _viewModel = new PublicacaoViewModel();
+        BindingContext = _viewModel;
+    }
+    private async void CriarPublicacaoClicked(object sender, EventArgs e)
+    {
+        // Execute a lógica para criar a nova publicação no ViewModel
+        await _viewModel.CriarPublicacao();
     }
 }

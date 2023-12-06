@@ -39,12 +39,6 @@ namespace AcaoSolidariaAppA.Services.Ong
             await request.PutAsync(apiUrlBase + urlComplementar, usuarioAtualizacao, string.Empty);
         }
 
-        public async Task<ONG> PostRegistrarPublicacaoAsync(ONG u)
-        {
-            Request request = new Request();
-            string urlComplementar = "/criarPublicacao";
-            u.IdOng = await request.PostReturnIntAsync(apiUrlBasePublicacao + urlComplementar, u);
-            return u;
-        }
+        
     }
 }

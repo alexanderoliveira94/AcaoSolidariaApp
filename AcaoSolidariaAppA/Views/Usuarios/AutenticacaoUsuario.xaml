@@ -4,47 +4,47 @@
              x:Class="AcaoSolidariaAppA.Views.Usuarios.AutenticacaoUsuario"
              xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
              Title="AutenticacaoUsuario">
-    
-    <ContentPage.BindingContext>
-            <viewModels:UsuarioViewModel/>
-        </ContentPage.BindingContext>
-        <ScrollView>
-            <VerticalStackLayout>
-                <Grid>
-                    <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
 
-                    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Image x:Name="LogoApp" Source="logo.png" 
+    <ContentPage.BindingContext>
+        <viewModels:UsuarioViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+
+                <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="LogoApp" Source="logo.png" 
                         WidthRequest="200"
                         HeightRequest="200"
                         Aspect="AspectFit"  
                         TranslationY="-300"/>
 
-                        <VerticalStackLayout>
-                            <Entry Text="{Binding UsuarioViewModel.Email}" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
-                            <Entry Text="{Binding UsuarioViewModel.SenhaUsuario}" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True"  VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
-                        </VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Entry Text="{Binding Email}" Placeholder="Email" PlaceholderColor="Black" VerticalOptions="CenterAndExpand" Margin="20,0,20,10" />
+                        <Entry Text="{Binding SenhaUsuario}" Placeholder="Senha" PlaceholderColor="Black" IsPassword="True" VerticalOptions="CenterAndExpand" Margin="20,0,20,10"/>
 
-                        <Button  
+                    </VerticalStackLayout>
+
+                    <Button  
                         Text="Entrar"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Center"
                         Margin="0,10,0,10"
-                        Command="{Binding UsuarioViewModel.AutenticarCommand}"
+                        Command="{Binding AutenticarCommand}"
                         TranslationY="30">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="BackgroundColor" Value="#0078D4" />
-                                    <Setter Property="TextColor" Value="White" />
-                                    <Setter Property="FontSize" Value="18" />
-                                    <Setter Property="CornerRadius" Value="25" />
-                                    <Setter Property="Padding" Value="20,10" />
-                                </Style>
-                            </Button.Style>
-                        </Button>
-
-                    </Grid>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="BackgroundColor" Value="#0078D4" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="FontSize" Value="18" />
+                                <Setter Property="CornerRadius" Value="25" />
+                                <Setter Property="Padding" Value="20,10" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </Grid>
-            </VerticalStackLayout>
-        </ScrollView>
-    </ContentPage>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

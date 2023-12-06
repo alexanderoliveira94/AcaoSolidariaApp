@@ -80,6 +80,9 @@
 	  <MauiXaml Update="Views\EscolhaOngVoluntario.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Ong\AutenticacaoOng.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Ong\FeedOng.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

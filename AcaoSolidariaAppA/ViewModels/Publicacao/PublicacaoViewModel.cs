@@ -1,9 +1,12 @@
+using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using AcaoSolidariaApp.Models;
 using AcaoSolidariaAppA;
 using AcaoSolidariaAppA.Services.PublicacaoService;
 using AcaoSolidariaAppA.ViewModels;
+using Microsoft.Maui.Controls;
 
 namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
 {
@@ -29,11 +32,22 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             CriarPublicacaoCommand = new Command(async () => await CriarPublicacao());
         }
 
+        private string _conteudo = string.Empty;
+        public string Conteudo
+        {
+            get { return NovaPublicacao.Conteudo; }
+            set
+            {
+                NovaPublicacao.Conteudo = value;
+                OnPropertyChanged();
+            }
+        }
+
         public async Task CriarPublicacao()
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(NovaPublicacao.Conteudo))
+                if (string.IsNullOrWhiteSpace(Conteudo))
                 {
                     throw new Exception("O campo Conteúdo é obrigatório.");
                 }
@@ -41,6 +55,8 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
                 // Aqui você pode adicionar validações adicionais conforme necessário
 
                 await _publicacaoService.CriarPublicacaoAsync(NovaPublicacao);
+                await CarregarPublicacoes(); // Atualiza a lista após criar uma nova publicação
+
                 await App.Current.MainPage.DisplayAlert("Sucesso", "Publicação criada com sucesso!", "Ok");
 
                 // Limpa os campos ou faça outras ações necessárias após a criação
@@ -51,6 +67,7 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
                 await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
+
         public async Task CarregarPublicacoes()
         {
             try

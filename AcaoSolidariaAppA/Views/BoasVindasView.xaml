@@ -3,6 +3,9 @@
              xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
              x:Class="AcaoSolidariaAppA.Views.BoasVindasView"
              Title="Login">
+    <ContentPage.BindingContext>
+        <viewModels:UsuarioViewModel/>
+    </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
             <Grid>
@@ -15,25 +18,44 @@
                         Aspect="AspectFit"  
                         TranslationY="-300"/>
 
+                    <VerticalStackLayout>
+                        <Button  
+                            Text="Entrar como Ong"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"
+                            Margin="0,10,0,10"
+                            Clicked="EntrarOngBtn_Clicked"
+                            TranslationY="30">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BackgroundColor" Value="#0078D4" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="FontSize" Value="18" />
+                                    <Setter Property="CornerRadius" Value="25" />
+                                    <Setter Property="Padding" Value="20,10" />
+                                </Style>
+                            </Button.Style>
+                        </Button>
 
-                    <Button  
-                        Text="Entrar como Voluntário"
+
+                        <Button  
+                        Text="Entrar como Usuario"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Center"
                         Margin="0,10,0,10"
                         Clicked="EntrarBtn_Clicked"
                         TranslationY="30">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="BackgroundColor" Value="#0078D4" />
-                                <Setter Property="TextColor" Value="White" />
-                                <Setter Property="FontSize" Value="18" />
-                                <Setter Property="CornerRadius" Value="25" />
-                                <Setter Property="Padding" Value="20,10" />
-                            </Style>
-                        </Button.Style>
-                    </Button>
-
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BackgroundColor" Value="#0078D4" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="FontSize" Value="18" />
+                                    <Setter Property="CornerRadius" Value="25" />
+                                    <Setter Property="Padding" Value="20,10" />
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </VerticalStackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Spacing="20">
                         <Button
                             Text="Cadastrar-se"

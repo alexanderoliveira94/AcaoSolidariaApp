@@ -12,5 +12,7 @@ namespace AcaoSolidariaApp.Models
         public string Conteudo { get; set; }
         public DateTime? DataPublicacao { get; set; }
         public int OngAssociada { get; set; }
+
+        public List<Candidatura> Candidaturas { get; set; }
     }
 }
