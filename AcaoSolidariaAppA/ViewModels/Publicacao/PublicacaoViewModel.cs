@@ -47,6 +47,7 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             }
         }
 
+        
         public async Task CriarPublicacao()
         {
             try
