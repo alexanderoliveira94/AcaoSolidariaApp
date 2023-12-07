@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcaoSolidariaAppA.Views.Usuarios.AlterarCadastroUsuario"
+             Title="Alterar Cadastro">
+
+    <AbsoluteLayout>
+        <!-- Background Image -->
+        <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+
+        <!-- Conteúdo Principal -->
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+
+                                
+                <!-- Descrição de Habilidades -->
+                <Entry Placeholder="Descrição de Habilidades" Text="{Binding DescricaoHabilidades}" />
+
+                <!-- Senha do Usuário -->
+                <Entry Placeholder="Nova Senha" IsPassword="True" Text="{Binding Senha}" />
+
+                <!-- Botão de Atualizar -->
+                <Button Text="Atualizar" Command="{Binding AtualizarCommand}" BackgroundColor="#3498db" TextColor="White" CornerRadius="8" />
+
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+
+</ContentPage>

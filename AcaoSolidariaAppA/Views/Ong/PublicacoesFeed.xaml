@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcaoSolidariaAppA.Views.Ong.PublicacoesFeed"
+             Title="PublicacoesFeed">
+
+
+    <!--<CollectionView  ItemsSource="{Binding Publicacoes}" Margin="0,10,0,0">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Margin="0,0,0,10">
+                    <Label Text="{Binding Conteudo}" FontSize="18" FontAttributes="Bold"/>
+                    --><!-- Adicione outros elementos conforme necessário --><!--
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>-->
+
+    
+
+    <ScrollView>
+       
+        <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
+            <ListView x:Name="listView" HasUnevenRows="True"                       
+                      ItemsSource="{Binding Publicacoes}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Conteudo}" FontSize="18" FontAttributes="Bold"/>                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
