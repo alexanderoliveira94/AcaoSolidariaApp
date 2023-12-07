@@ -19,7 +19,7 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
 
             //_publicacaoViewModel = new PublicacaoViewModel();
 
-            _publicacaoViewModel = new PublicacaoViewModel();
+            //_publicacaoViewModel = new PublicacaoViewModel();
 
             InicializarCommands();
         }
@@ -190,10 +190,6 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
 
                     Application.Current.MainPage = new PublicacoesFeed();
                     //await Application.Current.MainPage.Navigation.PushAsync(new PublicacoesFeed());
-
-
-
-                    Application.Current.MainPage = new FeedOng();
 
                 }
                 else

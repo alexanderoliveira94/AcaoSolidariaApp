@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> d1e7ccd178de182fbe2ca7852b4ce1dba323769e
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -98,11 +94,10 @@ namespace AcaoSolidariaAppA.Services
             HttpResponseMessage response = await httpClient.GetAsync(uri);
             string serialized = await response.Content.ReadAsStringAsync();
             TResult result = await Task.Run(() =>
-<<<<<<< HEAD
+
                 Newtonsoft.Json.JsonConvert.DeserializeObject<TResult>(serialized));
-=======
-                JsonSerializer.Deserialize<TResult>(serialized));
->>>>>>> d1e7ccd178de182fbe2ca7852b4ce1dba323769e
+
+            //JsonSerializer.Deserialize<TResult>(serialized));
             return result;
         }
 
