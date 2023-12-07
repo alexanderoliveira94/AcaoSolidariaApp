@@ -15,8 +15,6 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
         private readonly PublicacaoService _publicacaoService;
 
         public ObservableCollection<Publicacao> Publicacoes { get; set; }
-
-
         public ICommand CarregarPublicacoesCommand { get; set; }
         public ICommand CandidatarCommand { get; set; }
 
@@ -34,6 +32,7 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             CriarPublicacaoCommand = new Command(async () => await CriarPublicacao());
 
             _ = CarregarPublicacoes();
+
         }
 
         private string _conteudo = string.Empty;
@@ -47,7 +46,6 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             }
         }
 
-        
         public async Task CriarPublicacao()
         {
             try
@@ -77,16 +75,26 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
         {
             try
             {
+
                 //var publicacoes = await _publicacaoService.ListarPublicacoesAsync();
                 Publicacoes = await _publicacaoService.ListarPublicacoes2Async(); //new ObservableCollection<Publicacao>(publicacoes);
                 OnPropertyChanged(nameof(Publicacoes));
 
                 /*Publicacoes.Clear();
 
+                var publicacoes = await _publicacaoService.ListarPublicacoesAsync();
+
+                Publicacoes.Clear();
+
+
                 foreach (var publicacao in publicacoes)
                 {
                     Publicacoes.Add(publicacao);
+
                 }*/
+
+                
+
             }
             catch (Exception ex)
             {

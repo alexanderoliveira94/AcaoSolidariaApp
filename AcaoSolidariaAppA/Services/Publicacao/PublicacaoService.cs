@@ -25,6 +25,7 @@ namespace AcaoSolidariaAppA.Services.PublicacaoService
             return await request.GetAsync<List<Publicacao>>(apiUrlBase + urlComplementar, string.Empty);
         }
 
+
         public async Task<ObservableCollection<Publicacao>> ListarPublicacoes2Async()
         {
             Request request = new Request();

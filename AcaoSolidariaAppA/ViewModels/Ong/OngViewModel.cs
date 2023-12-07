@@ -16,7 +16,11 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
         public OngViewModel()
         {
             ongService = new OngService();
+
             //_publicacaoViewModel = new PublicacaoViewModel();
+
+            _publicacaoViewModel = new PublicacaoViewModel();
+
             InicializarCommands();
         }
 
@@ -183,9 +187,13 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
                     await Application.Current.MainPage.DisplayAlert(mensagemBemVindo, mensagemAcaoSolidaria, "Ok");
 
 
+
                     Application.Current.MainPage = new PublicacoesFeed();
                     //await Application.Current.MainPage.Navigation.PushAsync(new PublicacoesFeed());
 
+
+
+                    Application.Current.MainPage = new FeedOng();
 
                 }
                 else
