@@ -44,17 +44,30 @@
         <NavigationPage>
             <x:Arguments>
                 <ContentPage>
-                    <AbsoluteLayout>
-                        <!-- Adiciona o background à página principal -->
-                        <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+                    <ScrollView>
+                        <VerticalStackLayout>
+                            <Grid>  
+                                <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
+                                <ListView x:Name="listView" HasUnevenRows="True"                       
+                                             ItemsSource="{Binding Publicacoes}" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout Padding="10">
+                                                    <Label Text="{Binding Titulo}" FontSize="22" FontAttributes="Bold" TextColor="DarkBlue"/>
+                                                    <Label Text="{Binding Descricao}" FontSize="20" TextColor="Black"/>
+                                                    <Label Text="{Binding DataFim, StringFormat='Data de Fim: {0:dd/MM/yyyy}'}" FontSize="20" TextColor="DarkGreen"/>
+                                                    <Label Text="{Binding VagasDisponiveis, StringFormat='Vagas Disponíveis: {0}'}" FontSize="20" TextColor="DarkRed"/>
+                                                    <Label Text="{Binding Local}" FontSize="20" TextColor="DarkSlateGray"/>
 
-                        <!-- Conteúdo principal da página aqui -->
-                        <ScrollView>
-                            <VerticalStackLayout>
-                                <!-- Conteúdo existente aqui -->
-                            </VerticalStackLayout>
-                        </ScrollView>
-                    </AbsoluteLayout>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ScrollView>
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>

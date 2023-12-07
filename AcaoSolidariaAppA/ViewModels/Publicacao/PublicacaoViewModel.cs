@@ -35,13 +35,25 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
 
         }
 
-        private string _conteudo = string.Empty;
-        public string Conteudo
+        private string _titulo = string.Empty;
+
+        public string Titulo
         {
-            get { return NovaPublicacao.Conteudo; }
+            get { return NovaPublicacao.Titulo; }
             set
             {
-                NovaPublicacao.Conteudo = value;
+                NovaPublicacao.Titulo = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _descricao = string.Empty;
+        public string Conteudo
+        {
+            get { return NovaPublicacao.Descricao; }
+            set
+            {
+                NovaPublicacao.Descricao = value;
                 OnPropertyChanged();
             }
         }

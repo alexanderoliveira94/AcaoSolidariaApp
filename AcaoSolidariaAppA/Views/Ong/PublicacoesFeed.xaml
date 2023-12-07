@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AcaoSolidariaAppA.Views.Ong.PublicacoesFeed"
              Title="PublicacoesFeed">
-
+    
     <ScrollView>
         <VerticalStackLayout>
             <Grid>
@@ -14,8 +14,13 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Conteudo}" FontSize="18" FontAttributes="Bold"/>                                
-                            </StackLayout>
+                                    <Label Text="{Binding Titulo}" FontSize="22" FontAttributes="Bold" TextColor="DarkBlue"/>
+                                    <Label Text="{Binding Descricao}" FontSize="20" TextColor="Black"/>
+                                    <Label Text="{Binding DataFim, StringFormat='Data de Fim: {0:dd/MM/yyyy}'}" FontSize="20" TextColor="Red"/>
+                                    <Label Text="{Binding VagasDisponiveis, StringFormat='Vagas Disponíveis: {0}'}" FontSize="20" TextColor="Green"/>
+                                    <Label Text="{Binding Local}" FontSize="20" TextColor="Yellow"/>
+
+                                </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

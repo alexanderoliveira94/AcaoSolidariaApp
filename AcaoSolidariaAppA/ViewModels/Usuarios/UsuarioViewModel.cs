@@ -4,6 +4,7 @@ using AcaoSolidariaAppA.Models;
 using System.Net.Mail;
 using AcaoSolidariaAppA.Views.Usuarios;
 using AcaoSolidariaAppA.Views;
+using AcaoSolidariaApp.ViewModels.PublicacaoViewModel;
 
 namespace AcaoSolidariaAppA.ViewModels.Usuarios
 {
@@ -12,6 +13,7 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
         public UsuarioViewModel()
         {
             uService = new UsuarioService();
+            PublicacaoVM = new PublicacaoViewModel();
             InicializarCommands();
         }
 
@@ -22,16 +24,30 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
             DesconectarCommand = new Command(async () => await DesconectarUsuario());
             AlterarCadastroCommand = new Command(async () => await AlterarCadastro());
+            
         }
 
         private UsuarioService uService;
+
+
 
         public ICommand RegistrarCommand { get; set; }
         public ICommand AutenticarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
         public ICommand DesconectarCommand { get; set; }
         public ICommand AlterarCadastroCommand { get; set; }
+        
 
+        private PublicacaoViewModel _publicacaoViewModel;
+        public PublicacaoViewModel PublicacaoVM
+        {
+            get => _publicacaoViewModel;
+            set
+            {
+                _publicacaoViewModel = value;
+                OnPropertyChanged();
+            }
+        }
 
         private string _nome = string.Empty;
         public string Nome
