@@ -5,6 +5,7 @@ using AcaoSolidariaAppA;
 using AcaoSolidariaAppA.Services.PublicacaoService;
 using AcaoSolidariaAppA.ViewModels;
 using AcaoSolidariaAppA.Views.Ong;
+using AcaoSolidariaAppA.Views.Usuarios;
 
 namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
 {
@@ -15,6 +16,7 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
         public ObservableCollection<Publicacao> Publicacoes { get; set; }
         public ICommand CarregarPublicacoesCommand { get; set; }
         public ICommand CriarPublicacaoCommand { get; set; }
+        public ICommand CandidatarPublicacaoCommand { get; set; }
 
         // Propriedades para a criação de uma nova publicação
         private string _titulo = string.Empty;
@@ -50,7 +52,7 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             }
         }
 
-        private DateTime _dataFim = DateTime.Now; // Adicione essa propriedade
+        private DateTime _dataFim = DateTime.Now;
         public DateTime DataFim
         {
             get => _dataFim;
@@ -94,6 +96,34 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             }
         }
 
+        private int _idUsuario;
+        public int IdUsuario
+        {
+            get { return _idUsuario; }
+            set
+            {
+                if (_idUsuario != value)
+                {
+                    _idUsuario = value;
+                    OnPropertyChanged(nameof(IdUsuario));
+                }
+            }
+        }
+
+        private int _idPublicacao;
+        public int IdPublicacao
+        {
+            get { return _idPublicacao; }
+            set
+            {
+                if (_idPublicacao != value)
+                {
+                    _idPublicacao = value;
+                    OnPropertyChanged(nameof(IdPublicacao));
+                }
+            }
+        }
+
         public PublicacaoViewModel()
         {
             _publicacaoService = new PublicacaoService();
@@ -101,6 +131,7 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
 
             CarregarPublicacoesCommand = new Command(async () => await CarregarPublicacoes());
             CriarPublicacaoCommand = new Command(async () => await CriarPublicacao());
+            CandidatarPublicacaoCommand = new Command(async () => await CandidatarPublicacao());
 
             _ = CarregarPublicacoes();
         }
@@ -128,19 +159,16 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
                     throw new Exception("Os campos Título e Descrição são obrigatórios.");
                 }
 
-                // Validar a lógica específica conforme necessário
-
                 // Crie uma nova instância de Publicacao com os dados fornecidos
                 var novaPublicacao = new Publicacao
                 {
                     Titulo = Titulo,
                     Descricao = Descricao,
                     DataInicio = DataInicio,
-                    DataFim = DataFim, // Atributo adicionado
+                    DataFim = DataFim,
                     VagasDisponiveis = VagasDisponiveis,
                     Local = Local,
                     OngAssociada = OngAssociada
-
                 };
 
                 // Chama o método correspondente da PublicacaoViewModel para criar a publicação
@@ -162,5 +190,25 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
                 await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
+
+        public async Task CandidatarPublicacao()
+        {
+            try
+            {
+                // Chama o método correspondente da PublicacaoViewModel para candidatar à publicação
+                await _publicacaoService.CandidatarPublicacaoAsync(IdUsuario, IdPublicacao);
+
+                // Exibe uma mensagem de sucesso
+                await App.Current.MainPage.DisplayAlert("Sucesso", "Candidatura realizada com sucesso!", "Ok");
+
+                // Redireciona para a tela FeedUsuario após candidatar-se
+                Application.Current.MainPage = new FeedUsuario();
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+            }
+        }
+
     }
 }

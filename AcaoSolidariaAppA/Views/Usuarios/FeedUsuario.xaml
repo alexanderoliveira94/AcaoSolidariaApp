@@ -1,15 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
-            x:Class="AcaoSolidariaAppA.Views.Usuarios.FeedUsuario"
-            Title="FeedUsuario">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AcaoSolidariaAppA.ViewModels.Usuarios;assembly=AcaoSolidariaAppA"
+             x:Class="AcaoSolidariaAppA.Views.Usuarios.FeedUsuario"
+             Title="FeedUsuario">
 
-    
     <FlyoutPage.Flyout>
-        
         <ContentPage Title="Menu">
             <StackLayout BackgroundColor="LightBlue" Padding="20">
-                
                 <VerticalStackLayout>
                     <Image Source="logo.png" WidthRequest="80" HeightRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <Label Text="Ação Solidária" FontSize="Large" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0" />
@@ -45,12 +43,24 @@
         <NavigationPage>
             <x:Arguments>
                 <ContentPage>
-                    <ScrollView>
-                        <VerticalStackLayout>
-                            <Grid>  
-                                <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
-                                <ListView x:Name="listView" HasUnevenRows="True"                       
-                                             ItemsSource="{Binding Publicacoes}" >
+                    <AbsoluteLayout>
+                        <!-- Fundo estático fora do ScrollView -->
+                        <Image x:Name="Fundo" Source="background4.jpg" Aspect="AspectFill" IsVisible="true" HeightRequest="1000" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+
+                        <!-- Botão Participar do Projeto -->
+                       
+
+                        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                            <!-- Conteúdo -->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Button Text="Participar do Projeto" Clicked="OnParticiparProjetoClicked" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Margin="20" BackgroundColor="CornflowerBlue" />
+                                <!-- Lista de Publicações -->
+                                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Publicacoes}" Grid.Row="1">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <ViewCell>
@@ -60,15 +70,14 @@
                                                     <Label Text="{Binding DataFim, StringFormat='Data de Fim: {0:dd/MM/yyyy}'}" FontSize="20" TextColor="DarkGreen"/>
                                                     <Label Text="{Binding VagasDisponiveis, StringFormat='Vagas Disponíveis: {0}'}" FontSize="20" TextColor="DarkRed"/>
                                                     <Label Text="{Binding Local}" FontSize="20" TextColor="DarkSlateGray"/>
-
                                                 </StackLayout>
                                             </ViewCell>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
                             </Grid>
-                        </VerticalStackLayout>
-                    </ScrollView>
+                        </ScrollView>
+                    </AbsoluteLayout>
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>

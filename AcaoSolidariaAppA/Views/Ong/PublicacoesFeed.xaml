@@ -6,7 +6,7 @@
 
     <FlyoutPage.Flyout>
         <ContentPage Title="Menu">
-            <StackLayout BackgroundColor="CornflowerBlue" Padding="20">
+            <StackLayout BackgroundColor="LightBlue" Padding="20">
                 <VerticalStackLayout>
                     <Image Source="logo.png" WidthRequest="80" HeightRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <Label Text="Ação Solidária" FontSize="Large" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0" />

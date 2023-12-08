@@ -42,11 +42,12 @@ namespace AcaoSolidariaAppA.Services.PublicacaoService
             return await request.GetAsync<Publicacao>(apiUrlBase + urlComplementar, string.Empty);
         }
 
-        public async Task CandidatarPublicacaoAsync(int idPublicacao)
+        public async Task CandidatarPublicacaoAsync(int idUsuario, int idPublicacao)
         {
             Request request = new Request();
-            string urlComplementar = $"/candidatarProjeto/{idPublicacao}";
+            string urlComplementar = $"/candidatarProjeto?idUsuario={idUsuario}&idPublicacao={idPublicacao}";
 
+            // Especificando explicitamente os argumentos de tipo
             await request.PostAsync<Task>(apiUrlBase + urlComplementar, null, string.Empty);
         }
 

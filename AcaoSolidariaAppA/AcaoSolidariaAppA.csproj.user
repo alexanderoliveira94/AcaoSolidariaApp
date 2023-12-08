@@ -56,6 +56,9 @@
     <MauiXaml Update="Views\Usuarios\FeedUsuario.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Usuarios\ParticiparProjetoView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
   <ItemGroup>
     <None Update="Platforms\Windows\Package.appxmanifest">

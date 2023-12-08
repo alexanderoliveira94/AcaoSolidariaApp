@@ -25,5 +25,18 @@ public partial class FeedUsuario : FlyoutPage
         base.OnAppearing();
         _ = _viewModel.CarregarPublicacoes();
     }
+
+    private void OnParticiparProjetoClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            Application.Current.MainPage = new ParticiparProjetoView();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao criar publicação: {ex.Message}");
+        }
+    }
 }
 
