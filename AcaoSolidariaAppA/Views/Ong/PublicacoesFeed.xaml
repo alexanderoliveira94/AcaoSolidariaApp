@@ -1,31 +1,83 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
              x:Class="AcaoSolidariaAppA.Views.Ong.PublicacoesFeed"
              Title="PublicacoesFeed">
-    
-    <ScrollView>
-        <VerticalStackLayout>
-            <Grid>
-                <Image x:Name="Fundo" Source="background4.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="true" HeightRequest="1000"/>
-                <ListView x:Name="listView" HasUnevenRows="True"                       
-                      ItemsSource="{Binding Publicacoes}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                    <Label Text="{Binding Titulo}" FontSize="22" FontAttributes="Bold" TextColor="DarkBlue"/>
-                                    <Label Text="{Binding Descricao}" FontSize="20" TextColor="Black"/>
-                                    <Label Text="{Binding DataFim, StringFormat='Data de Fim: {0:dd/MM/yyyy}'}" FontSize="20" TextColor="Red"/>
-                                    <Label Text="{Binding VagasDisponiveis, StringFormat='Vagas Disponíveis: {0}'}" FontSize="20" TextColor="Green"/>
-                                    <Label Text="{Binding Local}" FontSize="20" TextColor="Yellow"/>
 
-                                </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-                </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
-</ContentPage>
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu">
+            <StackLayout BackgroundColor="CornflowerBlue" Padding="20">
+                <VerticalStackLayout>
+                    <Image Source="logo.png" WidthRequest="80" HeightRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="Ação Solidária" FontSize="Large" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0" />
+                    <Label Text="{Binding NomeOng}" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" Margin="0,5,0,0" />
+                    <Button Text="Alterar Cadastro" Command="{Binding AlterarCadastroCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,30,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="BackgroundColor" Value="DarkGreen" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="FontSize" Value="18" />
+                                <Setter Property="CornerRadius" Value="8" />
+                                <Setter Property="Padding" Value="20,10" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Text="Desconectar" Command="{Binding DesconectarOngCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,10,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="BackgroundColor" Value="#e74c3c" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="FontSize" Value="18" />
+                                <Setter Property="CornerRadius" Value="8" />
+                                <Setter Property="Padding" Value="20,10" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </VerticalStackLayout>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage>
+                    <AbsoluteLayout>
+                        <!-- Fundo estático fora do ScrollView -->
+                        <Image x:Name="Fundo" Source="background4.jpg" Aspect="AspectFill" IsVisible="true" HeightRequest="1000" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+
+                        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                            <!-- Conteúdo -->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Botão Criar Publicação -->
+                                <Button Text="Criar Publicação" Clicked="OnCriarPublicacaoClicked" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="20" BackgroundColor="CornflowerBlue" />
+
+                                <!-- Lista de Publicações -->
+                                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Publicacoes}" Grid.Row="1">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout Padding="10">
+                                                    <Label Text="{Binding Titulo}" FontSize="22" FontAttributes="Bold" TextColor="DarkBlue"/>
+                                                    <Label Text="{Binding Descricao}" FontSize="20" TextColor="Black"/>
+                                                    <Label Text="{Binding DataFim, StringFormat='Data de Fim: {0:dd/MM/yyyy}'}" FontSize="20" TextColor="DarkGreen"/>
+                                                    <Label Text="{Binding VagasDisponiveis, StringFormat='Vagas Disponíveis: {0}'}" FontSize="20" TextColor="DarkRed"/>
+                                                    <Label Text="{Binding Local}" FontSize="20" TextColor="DarkSlateGray"/>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </ScrollView>
+                    </AbsoluteLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

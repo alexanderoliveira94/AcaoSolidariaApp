@@ -86,7 +86,7 @@
 	  <MauiXaml Update="Views\Ong\AutenticacaoOng.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Ong\FeedOng.xaml">
+	  <MauiXaml Update="Views\Ong\CriarPublicacaoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 
@@ -116,9 +116,6 @@
 	<ItemGroup>
 	  <Compile Update="Views\CadastroUsuario.xaml.cs">
 	    <DependentUpon>CadastroUsuario.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Ong\FeedOng.xaml.cs">
-	    <DependentUpon>FeedOng.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

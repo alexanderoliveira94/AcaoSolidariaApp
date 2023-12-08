@@ -3,8 +3,6 @@ using System.Windows.Input;
 using AcaoSolidariaAppA.Models;
 using System.Net.Mail;
 using AcaoSolidariaAppA.Views;
-using AcaoSolidariaAppA.Views.Usuarios;
-using AcaoSolidariaApp.ViewModels.PublicacaoViewModel;
 using AcaoSolidariaAppA.Views.Ong;
 
 
@@ -31,13 +29,11 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
             DirecionarCadastroOngCommand = new Command(async () => await DirecionarParaCadastro());
             DesconectarOngCommand = new Command(async () => await DesconectarOng());
             //AlterarCadastroCommand = new Command(async () => await AlterarCadastro());
-            CriarPublicacaoCommand = new Command(async () => await _publicacaoViewModel.CriarPublicacao());
-            CarregarPublicacoesCommand = new Command(async () => await _publicacaoViewModel.CarregarPublicacoes());
 
         }
 
         private OngService ongService;
-        private PublicacaoViewModel _publicacaoViewModel;
+        
 
         public ICommand RegistrarOngCommand { get; set; }
         public ICommand AutenticarOngCommand { get; set; }
@@ -184,11 +180,14 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
                     Preferences.Set("OngNome", uAutenticado.NomeOng);
                     Preferences.Set("OngEmail", uAutenticado.EmailOng);
 
+                    
+
                     await Application.Current.MainPage.DisplayAlert(mensagemBemVindo, mensagemAcaoSolidaria, "Ok");
 
+                   
 
-
-                    Application.Current.MainPage = new PublicacoesFeed();
+                    //Application.Current.MainPage = new NavigationPage(new PublicacoesFeed());
+                    Application.Current.MainPage= new PublicacoesFeed();
                     //await Application.Current.MainPage.Navigation.PushAsync(new PublicacoesFeed());
 
                 }
@@ -312,9 +311,5 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
             }
         }
 
-        private async Task CarregarPublicacoes()
-        {
-            await _publicacaoViewModel.CarregarPublicacoes();
-        }
     }
 }

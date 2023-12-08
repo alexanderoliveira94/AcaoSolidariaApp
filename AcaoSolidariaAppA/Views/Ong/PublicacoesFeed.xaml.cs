@@ -3,16 +3,18 @@ using AcaoSolidariaAppA.ViewModels.Ongs;
 
 namespace AcaoSolidariaAppA.Views.Ong;
 
-public partial class PublicacoesFeed : ContentPage
+public partial class PublicacoesFeed : FlyoutPage
 {
     private readonly PublicacaoViewModel _viewModel;
+    private readonly OngViewModel _ongViewModel;
 
     public PublicacoesFeed()
 	{
 		InitializeComponent();
-
+        _ongViewModel = new OngViewModel();
         _viewModel = new PublicacaoViewModel();
-        BindingContext = _viewModel;
+        BindingContext = _ongViewModel;
+        listView.BindingContext = _viewModel;
     }
 
     protected override void OnAppearing()
@@ -20,4 +22,19 @@ public partial class PublicacoesFeed : ContentPage
         base.OnAppearing();
         _ = _viewModel.CarregarPublicacoes();
     }
+
+    private void OnCriarPublicacaoClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            Application.Current.MainPage = new CriarPublicacaoView();
+            
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao criar publicação: {ex.Message}");
+        }
+    }
+
+
 }

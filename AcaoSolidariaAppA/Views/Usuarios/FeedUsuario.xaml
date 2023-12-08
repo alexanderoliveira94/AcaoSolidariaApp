@@ -6,6 +6,7 @@
 
     
     <FlyoutPage.Flyout>
+        
         <ContentPage Title="Menu">
             <StackLayout BackgroundColor="LightBlue" Padding="20">
                 
