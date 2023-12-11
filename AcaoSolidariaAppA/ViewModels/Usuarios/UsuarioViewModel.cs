@@ -176,10 +176,10 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
             try
             {
                 // Obtenha as informações do usuário autenticado (por exemplo, do armazenamento local)
-                int idUsuario = Preferences.Get("UsuarioId", 0);
+                int IdUsuario = Preferences.Get("UsuarioId", 0);
 
                 // Verifique se há um ID de usuário válido
-                if (idUsuario <= 0)
+                if (IdUsuario <= 0)
                 {
                     await App.Current.MainPage.DisplayAlert("Erro", "ID de usuário inválido.", "Ok");
                     return;
@@ -187,13 +187,13 @@ namespace AcaoSolidariaAppA.ViewModels.Usuarios
 
                 Usuario usuarioAtualizacao = new Usuario
                 {
-                    IdUsuario = idUsuario,
+                    IdUsuario = IdUsuario,
                     SenhaUsuario = SenhaUsuario,
                     DescricaoHabilidades = DescricaoHabilidades
                 };
 
                 // Chame o método para atualizar o usuário
-                await uService.AtualizarUsuarioAsync(idUsuario, usuarioAtualizacao);
+                await uService.AtualizarUsuarioAsync(IdUsuario, usuarioAtualizacao);
 
                 await App.Current.MainPage.DisplayAlert("Sucesso", "Usuário atualizado com sucesso.", "Ok");
             }

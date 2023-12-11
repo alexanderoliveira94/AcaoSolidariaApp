@@ -67,5 +67,13 @@ namespace AcaoSolidariaAppA.Services.PublicacaoService
 
             await request.DeleteAsync(apiUrlBase + urlComplementar, string.Empty);
         }
+
+        public async Task<ObservableCollection<Candidatura>> ListarCandidaturasAsync()
+        {
+            Request request = new Request();
+            string urlComplementar = "/listarCandidaturas";
+
+            return await request.GetAsync<ObservableCollection<Candidatura>>(apiUrlBase + urlComplementar, string.Empty);
+        }
     }
 }

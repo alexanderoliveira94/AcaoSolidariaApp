@@ -17,8 +17,9 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
         public ICommand CarregarPublicacoesCommand { get; set; }
         public ICommand CriarPublicacaoCommand { get; set; }
         public ICommand CandidatarPublicacaoCommand { get; set; }
+        public ObservableCollection<Candidatura> Candidaturas { get; set; }
+        public ICommand CarregarCandidaturasCommand { get; set; }
 
-        // Propriedades para a criação de uma nova publicação
         private string _titulo = string.Empty;
         public string Titulo
         {
@@ -124,6 +125,34 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             }
         }
 
+        private int _idCandidatura;
+        public int IdCandidatura
+        {
+            get { return _idCandidatura; }
+            set
+            {
+                if (_idCandidatura != value)
+                {
+                    _idCandidatura = value;
+                    OnPropertyChanged(nameof(IdCandidatura));
+                }
+            }
+        }
+
+        private DateTime _dataCandidatura;
+        public DateTime DataCandidatura
+        {
+            get { return _dataCandidatura; }
+            set
+            {
+                if (_dataCandidatura != value)
+                {
+                    _dataCandidatura = value;
+                    OnPropertyChanged(nameof(DataCandidatura));
+                }
+            }
+        }
+
         public PublicacaoViewModel()
         {
             _publicacaoService = new PublicacaoService();
@@ -132,8 +161,24 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
             CarregarPublicacoesCommand = new Command(async () => await CarregarPublicacoes());
             CriarPublicacaoCommand = new Command(async () => await CriarPublicacao());
             CandidatarPublicacaoCommand = new Command(async () => await CandidatarPublicacao());
+            CarregarCandidaturasCommand = new Command(async () => await CarregarCandidaturas());
 
             _ = CarregarPublicacoes();
+            _ = CarregarCandidaturas();
+        }
+
+        public async Task CarregarCandidaturas()
+        {
+            try
+            {
+                
+                Candidaturas = await _publicacaoService.ListarCandidaturasAsync();
+                OnPropertyChanged(nameof(Candidaturas));
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+            }
         }
 
         public async Task CarregarPublicacoes()
@@ -153,13 +198,12 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
         {
             try
             {
-                // Validar os campos necessários
+                
                 if (string.IsNullOrWhiteSpace(Titulo) || string.IsNullOrWhiteSpace(Descricao))
                 {
                     throw new Exception("Os campos Título e Descrição são obrigatórios.");
                 }
-
-                // Crie uma nova instância de Publicacao com os dados fornecidos
+             
                 var novaPublicacao = new Publicacao
                 {
                     Titulo = Titulo,
@@ -171,10 +215,8 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
                     OngAssociada = OngAssociada
                 };
 
-                // Chama o método correspondente da PublicacaoViewModel para criar a publicação
                 await _publicacaoService.CriarPublicacaoAsync(novaPublicacao);
 
-                // Limpa os campos ou faça outras ações necessárias após a criação
                 Titulo = string.Empty;
                 Descricao = string.Empty;
                 DataInicio = DateTime.Now;
@@ -195,13 +237,11 @@ namespace AcaoSolidariaApp.ViewModels.PublicacaoViewModel
         {
             try
             {
-                // Chama o método correspondente da PublicacaoViewModel para candidatar à publicação
+
                 await _publicacaoService.CandidatarPublicacaoAsync(IdUsuario, IdPublicacao);
 
-                // Exibe uma mensagem de sucesso
                 await App.Current.MainPage.DisplayAlert("Sucesso", "Candidatura realizada com sucesso!", "Ok");
 
-                // Redireciona para a tela FeedUsuario após candidatar-se
                 Application.Current.MainPage = new FeedUsuario();
             }
             catch (Exception ex)

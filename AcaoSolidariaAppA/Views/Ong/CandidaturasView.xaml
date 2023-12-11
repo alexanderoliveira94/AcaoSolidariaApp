@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AcaoSolidariaAppA.Views.Ong"
+             x:Class="AcaoSolidariaAppA.Views.Ong.CandidaturasView"
+             Title="CandidaturasView">
+
+    <AbsoluteLayout>
+        <!-- Fundo estático fora do ScrollView -->
+        <Image Source="background4.jpg" Aspect="AspectFill" IsVisible="true" HeightRequest="1000" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout>
+                <ListView x:Name="candidaturasListView" HasUnevenRows="True" ItemsSource="{Binding Candidaturas}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" BackgroundColor="Transparent">
+                                    <Label Text="{Binding IdCandidatura, StringFormat='Código da Candidatura: {0}'}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                                    <Label Text="{Binding IdPublicacao, StringFormat='Código da Publicação: {0}'}" FontSize="16" TextColor="Black"/>
+                                    <Label Text="{Binding IdUsuario, StringFormat='Código do Usuário: {0}'}" FontSize="16" TextColor="Black"/>
+                                    <Label Text="{Binding DataCandidatura, StringFormat='Data da Candidatura: {0:dd/MM/yyyy}'}" FontSize="16" TextColor="Black"/>
+                                    <!-- Adicione outras propriedades conforme necessário -->
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Botão de Voltar -->
+                <Button Text="Voltar" Clicked="OnVoltarClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Margin="0,20,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="BackgroundColor" Value="CornflowerBlue" />
+                            <Setter Property="TextColor" Value="White" />
+                            <Setter Property="FontSize" Value="18" />
+                            <Setter Property="CornerRadius" Value="8" />
+                            <Setter Property="Padding" Value="20,10" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+</ContentPage>

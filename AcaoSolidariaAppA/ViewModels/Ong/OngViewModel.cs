@@ -15,10 +15,6 @@ namespace AcaoSolidariaAppA.ViewModels.Ongs
         {
             ongService = new OngService();
 
-            //_publicacaoViewModel = new PublicacaoViewModel();
-
-            //_publicacaoViewModel = new PublicacaoViewModel();
-
             InicializarCommands();
         }
 

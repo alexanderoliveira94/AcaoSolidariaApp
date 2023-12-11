@@ -44,6 +44,9 @@
     <MauiXaml Update="Views\Ong\AutenticacaoOng.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Ong\CandidaturasView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\Ong\CriarPublicacaoView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

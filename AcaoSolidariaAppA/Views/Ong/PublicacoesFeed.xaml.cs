@@ -16,7 +16,7 @@ public partial class PublicacoesFeed : FlyoutPage
         BindingContext = _ongViewModel;
         listView.BindingContext = _viewModel;
     }
-
+     
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -36,5 +36,8 @@ public partial class PublicacoesFeed : FlyoutPage
         }
     }
 
-
+    private void CandidaduturasClicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new CandidaturasView();
+    }
 }
